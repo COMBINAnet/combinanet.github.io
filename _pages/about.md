@@ -19,9 +19,11 @@ social: false # includes social icons at the bottom of the page
 ---
 
 # Our goal
+
 Preventing marine bioinvasions and associated impacts at local to continental scales
 
 ## Accelerating knowledge exchange and capacity-building
+
 - Annual regional meeting
 - Training workshops
 - Student exchanges and internships
