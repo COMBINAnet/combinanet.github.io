@@ -10,6 +10,7 @@ tikzjax: true
 
 This is an example post with TikZ code. TikZJax converts script tags (containing TikZ code) into SVGs.
 
+<!-- prettier-ignore-start -->
 <script type="text/tikz">
 \begin{tikzpicture}
     \draw[red,fill=black!60!red] (0,0) circle [radius=1.5];
@@ -17,3 +18,4 @@ This is an example post with TikZ code. TikZJax converts script tags (containing
     \draw[blue,fill=black!60!blue] (0,0) circle [x radius=1cm, y radius=5mm, rotate=30];
 \end{tikzpicture}
 </script>
+<!-- prettier-ignore-end -->

@@ -19,10 +19,12 @@ $$
 You can also use `\begin{equation}...\end{equation}` instead of `$$` for display mode math.
 MathJax will automatically number equations:
 
+<!-- prettier-ignore-start -->
 \begin{equation}
 \label{eq:cauchy-schwarz}
 \left( \sum_{k=1}^n a_k b_k \right)^2 \leq \left( \sum_{k=1}^n a_k^2 \right) \left( \sum_{k=1}^n b_k^2 \right)
 \end{equation}
+<!-- prettier-ignore-end -->
 
 and by adding `\label{...}` inside the equation environment, we can now refer to the equation using `\eqref`.
 

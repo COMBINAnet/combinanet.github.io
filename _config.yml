@@ -228,11 +228,12 @@ kramdown:
 include: ["_pages"]
 exclude:
   - _bibliography/_examples/
-  - _data/_examples
+  - _data/_examples/
+  - _drafts/_examples/
   - _news/_examples/
   - _pages/_examples/
   - _pages/about_einstein.md
-  - _projects/_examples
+  - _projects/_examples/
   - bin/
   - CONTRIBUTING.md
   - CUSTOMIZE.md
