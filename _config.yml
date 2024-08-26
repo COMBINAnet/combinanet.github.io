@@ -49,7 +49,7 @@ rss_icon: true
 navbar_fixed: true
 footer_fixed: true
 search_enabled: true
-socials_in_search: true
+socials_in_search: false
 bib_search: true
 
 # Dimensions
@@ -203,7 +203,7 @@ announcements:
   limit: 5 # leave blank to include all the news in the `_news` folder
 
 latest_posts:
-  enabled: true
+  enabled: false
   scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
   limit: 3 # leave blank to include all the blog posts
 
@@ -311,8 +311,8 @@ display_categories: # ["external-services"] these categories will be displayed o
 # -----------------------------------------------------------------------------
 
 scholar:
-  last_name: # [Einstein]
-  first_name: # [Albert, A.]
+  # last_name: # [Einstein]
+  # first_name: # [Albert, A.]
 
   style: apa
   locale: en
