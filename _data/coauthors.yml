@@ -1,0 +1,274 @@
+# "adams":
+#   - firstname: ["Edwin", "E.", "E. P.", "Edwin Plimpton"]
+#     url: https://en.wikipedia.org/wiki/Edwin_Plimpton_Adams
+
+# "podolsky":
+#   - firstname: ["Boris", "B.", "B. Y.", "Boris Yakovlevich"]
+#     url: https://en.wikipedia.org/wiki/Boris_Podolsky
+
+# "bach":
+#   - firstname: ["Johann Sebastian", "J. S."]
+#     url: https://en.wikipedia.org/wiki/Johann_Sebastian_Bach
+
+#   - firstname: ["Carl Philipp Emanuel", "C. P. E."]
+#     url: https://en.wikipedia.org/wiki/Carl_Philipp_Emanuel_Bach
+
+"albano":
+  - firstname: ["Mariano"]
+    url:
+
+"altieri":
+  - firstname: ["Andrew H."]
+    url:
+
+"altvater":
+  - firstname: ["Luciana"]
+    url:
+
+"ashton":
+  - firstname: ["Gail V."]
+    url:
+
+"bastida-Zavala":
+  - firstname: ["Rolando"]
+    url:
+
+"bortolus":
+  - firstname: ["Alejandro"]
+    url:
+
+"brante":
+  - firstname: ["Antonio"]
+    url:
+
+"bravo":
+  - firstname: ["Viviana"]
+    url:
+
+"brown":
+  - firstname: ["Norah"]
+    url:
+
+"buschmann":
+  - firstname: ["Alejandro H."]
+    url:
+
+"buskey":
+  - firstname: ["Edward"]
+    url:
+
+"barrera":
+  - firstname: ["Rosita Calderón"]
+    url:
+
+"campeán":
+  - firstname: ["Analí Jiménez"]
+    url:
+
+"cheng":
+  - firstname: ["Brian"]
+    url:
+
+"collin":
+  - firstname: ["Rachel"]
+    url:
+
+"coutinho":
+  - firstname: ["Ricardo"]
+    url:
+
+"gracia":
+  - firstname: ["Luis De"]
+    url:
+
+"dias":
+  - firstname: ["Gustavo M."]
+    url:
+
+"dibacco":
+  - firstname: ["Claudio"]
+    url:
+
+"duffy":
+  - firstname: ["J. Emmett"]
+    url:
+
+"flores":
+  - firstname: ["Augusto A. V."]
+    url:
+
+"freestone":
+  - firstname: ["Amy L.", "A. L."]
+    url: https://serc.si.edu/staff/amy-freestone
+
+"haddad":
+  - firstname: ["Maria Angélica"]
+    url:
+
+"hoffman":
+  - firstname: ["Zvi"]
+    url:
+
+"erquiaga":
+  - firstname: ["Bruno Ibañez"]
+    url:
+
+"janiak":
+  - firstname: ["Dean"]
+    url:
+
+"keith":
+  - firstname: ["Inti"]
+    url:
+
+"leclerc":
+  - firstname: ["Jean-Charles"]
+    url:
+
+"lecompte-pérez":
+  - firstname: ["Orlando Pedro"]
+    url:
+
+"longo":
+  - firstname: ["Guilherme Ortigara"]
+    url:
+
+"matthews-cascon":
+  - firstname: ["Helena"]
+    url:
+
+"mckenzie":
+  - firstname: ["Cynthia H."]
+    url:
+
+"miller":
+  - firstname: ["Jessica"]
+    url:
+
+"munizaga":
+  - firstname: ["Martín"]
+    url:
+
+"naval-xavier":
+  - firstname: ["Lais P. D."]
+    url:
+
+"navarrete":
+  - firstname: ["Sergio A."]
+    url:
+
+"otálora":
+  - firstname: ["Carlos"]
+    url:
+
+"palomino-alvarez":
+  - firstname: ["Lilian A."]
+    url:
+
+"palomo":
+  - firstname: ["Maria Gabriela"]
+    url:
+
+"patrick":
+  - firstname: ["Chris"]
+    url:
+
+"pegau":
+  - firstname: ["Cormack"]
+    url:
+
+"pereda":
+  - firstname: ["Sandra V."]
+    url:
+
+"rocha":
+  - firstname: ["Rosana M."]
+    url:
+
+"ruiz":
+  - firstname: ["Gregory M.", "G. M."]
+    url: https://serc.si.edu/staff/gregory-ruiz/
+
+"rumbold":
+  - firstname: ["Carlos"]
+    url:
+
+"sánchez":
+  - firstname: ["Carlos"]
+    url:
+
+"sanjuan-muñoz":
+  - firstname: ["Adolfo"]
+    url:
+
+"schlöder":
+  - firstname: ["Carmen"]
+    url:
+
+"schwindt":
+  - firstname: ["Evangelina"]
+    url:
+
+"seemann":
+  - firstname: ["Janina"]
+    url:
+
+"sewall":
+  - firstname: ["Brent J."]
+    url:
+
+"shanks":
+  - firstname: ["Alan"]
+    url:
+
+"simoes":
+  - firstname: ["Nuno"]
+    url:
+
+"skinner":
+  - firstname: ["Luis"]
+    url:
+
+"suárez-mozo":
+  - firstname: ["Nancy Yolimar"]
+    url:
+
+"thiel":
+  - firstname: ["Martin"]
+    url:
+
+"torchin":
+  - firstname: ["Mark E."]
+    url:
+
+"tracy":
+  - firstname: ["Brianna"]
+    url:
+
+"valdivia":
+  - firstname: ["Nelson"]
+    url:
+
+"velez-zuazo":
+  - firstname: ["Ximena"]
+    url:
+
+"vieira":
+  - firstname: ["Edson A."]
+    url:
+
+"vildoso":
+  - firstname: ["Bruno"]
+    url:
+
+"wehrtmann":
+  - firstname: ["Ingo S."]
+    url:
+
+"whalen":
+  - firstname: ["Matt"]
+    url:
+
+"wilbur":
+  - firstname: ["Lynn"]
+    url:
