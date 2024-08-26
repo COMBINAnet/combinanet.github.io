@@ -18,17 +18,17 @@ selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ---
 
-# Our goal
+## Our goal
 
 Preventing marine bioinvasions and associated impacts at local to continental scales
 
-## Accelerating knowledge exchange and capacity-building
+### Accelerating knowledge exchange and capacity-building
 
 - Annual regional meeting
 - Training workshops
 - Student exchanges and internships
 
-## Mobilizing shared tools and resources
+### Mobilizing shared tools and resources
 
 - Standardized protocols
 - Non-native species databases

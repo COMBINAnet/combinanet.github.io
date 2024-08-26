@@ -541,6 +541,7 @@ footer.sticky-bottom {
 }
 
 .post-title {
+  color: var(--global-theme-color);
   mjx-container[jax="CHTML"][display="true"] {
     display: unset;
   }
