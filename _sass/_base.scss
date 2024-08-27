@@ -243,6 +243,10 @@ ul.task-list input[type="checkbox"] {
 
 // Navbar customization
 
+.site-title {
+  font-weight: bold;
+}
+
 .navbar {
   box-shadow: none;
   border-bottom: 1px solid var(--global-divider-color);
@@ -542,6 +546,7 @@ footer.sticky-bottom {
 
 .post-title {
   color: var(--global-theme-color);
+  
   mjx-container[jax="CHTML"][display="true"] {
     display: unset;
   }
