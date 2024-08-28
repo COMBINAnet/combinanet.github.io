@@ -229,7 +229,7 @@ ul.task-list input[type="checkbox"] {
 
 .post-description {
   margin-bottom: 2rem;
-  font-size: 0.875rem;
+  font-size: 1.25rem;
 
   a {
     color: inherit;
@@ -239,6 +239,55 @@ ul.task-list input[type="checkbox"] {
       text-decoration: none;
     }
   }
+}
+
+// About (Splash)
+
+.layout--about-splash {
+
+  .jumbotron--overlay {
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    .wrapper {
+      background-color: rgba(255, 255, 255, 0.6);
+      padding: 0.75rem;
+    }
+
+    .post-description{
+      font-size: 1.75rem;
+      font-weight: 300;
+    }
+  }
+
+  article{
+    aside {
+      h2 {
+        color: var(--global-theme-color)
+      }
+    }
+  }
+}
+
+// People
+
+.layout--people {
+  .steering {
+
+    figure {
+      margin-bottom: 0;
+      width: 100%;
+      
+      picture {
+        img {
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
 }
 
 // Navbar customization

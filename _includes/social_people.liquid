@@ -1,0 +1,15 @@
+{% if person.github_username %}
+  <a href="https://github.com/{{ person.github_username }}" title="GitHub"><i class="fa-brands fa-github"></i></a>
+{% endif %}
+{% if person.linkedin_username %}
+  <a href="https://www.linkedin.com/in/{{ person.linkedin_username }}" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+{% endif %}
+{% if person.orcid_id %}
+  <a href="https://orcid.org/{{ person.orcid_id }}" title="ORCID"><i class="ai ai-orcid"></i></a>
+{% endif %}
+{% if person.research_gate_profile %}
+  <a href="https://www.researchgate.net/profile/{{person.research_gate_profile}}/" title="ResearchGate"><i class="ai ai-researchgate"></i></a>
+{% endif %}
+{% if person.scholar_userid %}
+  <a href="https://scholar.google.com/citations?user={{ person.scholar_userid }}" title="Google Scholar"><i class="ai ai-google-scholar"></i></a>
+{% endif %}

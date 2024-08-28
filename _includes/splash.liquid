@@ -1,0 +1,29 @@
+{% comment %} Adapted from: https://github.com/mmistakes/minimal-mistakes/commit/ed883ea2d46f0480103a239ca2fe0a91faf09680 {% endcomment %}
+
+{% capture overlay_img_path %}{{ page.header.overlay_image | relative_url }}{% endcapture %}
+
+  {% if page.header.overlay_filter contains "gradient" %}
+    {% capture overlay_filter %}{{ page.header.overlay_filter }}{% endcapture %}
+  {% elsif page.header.overlay_filter contains "rgba" %}
+    {% capture overlay_filter %}{{ page.header.overlay_filter }}{% endcapture %}
+    {% capture overlay_filter %}linear-gradient({{ overlay_filter }}, {{ overlay_filter }}){% endcapture %}
+  {% elsif page.header.overlay_filter %}
+    {% capture overlay_filter %}rgba(0, 0, 0, {{ page.header.overlay_filter }}){% endcapture %}
+    {% capture overlay_filter %}linear-gradient({{ overlay_filter }}, {{ overlay_filter }}){% endcapture %}
+  {% endif %}
+    
+  <header class="post-header jumbotron jumbotron{% if page.header.overlay_color or page.header.overlay_image %}--overlay{% endif %}"
+    style="{% if page.header.overlay_color %}background-color: {{ page.header.overlay_color | default: 'transparent' }};{% endif %} {% if overlay_img_path %}background-image: {% if overlay_filter %}{{ overlay_filter }}, {% endif %}url('{{ overlay_img_path }}');{% endif %}"
+  >
+    <div class="wrapper">
+      <h1 class="post-title site-title">
+        {% if site.title == 'blank' %}
+          {{ site.first_name }} 
+          <span class="font-weight-lighter">{{ site.middle_name }} {{ site.last_name }}</span>
+        {% else %}
+          {{ site.title }}
+        {% endif %}
+      </h1>
+      <p class="post-description h3">{{ page.subtitle }}</p>
+    </div>
+  </header>
