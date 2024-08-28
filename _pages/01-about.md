@@ -1,26 +1,23 @@
 ---
-layout: about
+layout: about-splash
 title: About
 permalink: /
 subtitle: Coastal Ocean Marine Biosecurity International Network of the Americas
 
-profile:
-  align: right
-  image: 4.jpg
-  image_circular: false # crops the image to make it circular
-#   more_info: > # Contact info can go here
-#     <p>555 your office number</p>
-#     <p>123 your address street</p>
-#     <p>Your City, State 12345</p>
+# Adapted from https://github.com/mmistakes/minimal-mistakes/blob/master/_includes/page__hero.html
+# See documentation: https://mmistakes.github.io/minimal-mistakes/docs/layouts/#header-overlay
+
+header:
+  overlay_image: /assets/img/4.jpg
+  overlay_filter: rgba(255, 255, 255, 0.4) # Color/opacity to overlay on top of overlay image. Example: 0.5 (percent black), rgba(255, 0, 0, 0.5) or linear-gradient.
 
 news: true # includes a list of news items
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ---
 
-## Our goal
-
-Preventing marine bioinvasions and associated impacts at local to continental scales
+**Our goal:** preventing marine bioinvasions and associated impacts at local to continental scales. 
+{: .lead}
 
 ### Accelerating knowledge exchange and capacity-building
 

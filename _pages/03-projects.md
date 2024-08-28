@@ -2,8 +2,8 @@
 layout: page
 title: Projects
 permalink: /projects/
-description: Projects across the network
-nav: true
+description: Projects from across our network
+nav: false
 nav_order: 3
 display_categories: [active, past]
 horizontal: false

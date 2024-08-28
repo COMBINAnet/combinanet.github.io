@@ -1,7 +1,7 @@
 ---
 layout: page
-permalink: /publications/
 title: Publications
+permalink: /publications/
 description: Publications from our network of collaborators
 nav: true
 nav_order: 4
