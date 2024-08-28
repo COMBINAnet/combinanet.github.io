@@ -1,0 +1,19 @@
+# Format:
+#
+# - name:
+#   degrees: # For people who prefer to list credentials after their name
+#   affiliation:
+#   image: assets/img/people/name.jpg (crop to: 345 x 425)
+#   website:
+
+- name: Amy L. Freestone
+  degrees:
+  affiliation: Smithsonian Environmental Research Center
+  image: assets/img/people/amy_freestone.jpg
+  website: https://serc.si.edu/staff/amy-freestone
+
+- name: Gregory M. Ruiz
+  degrees:
+  affiliation: Smithsonian Environmental Research Center
+  image: assets/img/people/greg_ruiz.jpg
+  website: https://serc.si.edu/staff/gregory-ruiz/
