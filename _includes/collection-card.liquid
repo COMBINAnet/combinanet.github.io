@@ -1,0 +1,33 @@
+<div class="col">
+  <a href="{% if entry.redirect %}{{ entry.redirect }}{% else %}{{ entry.url | relative_url }}{% endif %}">
+    <div class="card h-100 hoverable">
+      {% if entry.img %}
+        {%
+          include picture.liquid
+          loading="eager"
+          path=entry.img
+          sizes = "(min-width: 768px) 156px, 50vw"
+          alt="item thumbnail"
+          class="card-img-top"
+        %}
+      {% elsif entry.icon %}
+        <h1 class="icon text-center text-light"><i class="fa fa-{{- entry.icon -}}"></i></h1>
+      {% elsif site.data['default-icons'][category] %}
+        {% assign default = site.data['default-icons'][category] %}
+        <h1 class="icon text-center text-light"><i class="fa fa-{{- default.icon -}}"></i></h1>
+      {% endif %}
+      <div class="card-body">
+        <h2 class="card-title">{{ entry.title }}</h2>
+        <p class="card-text">{{ entry.description }}</p>
+      </div>
+      {% if entry.github %}
+        <div class="card-footer text-right">
+          <a href="{{ entry.github |  prepend: 'https://github.com/' }}" title="Code Repository">
+            <i aria-hidden="true" class="fa-brands fa-github fa-xl"></i>
+            <span class="fa-sr-only">Code repository</span>
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </a>
+</div>

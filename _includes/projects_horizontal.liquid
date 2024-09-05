@@ -6,8 +6,12 @@
           <div class="col-md-6">
             {% include figure.liquid loading="eager" path=project.img sizes="(min-width: 768px) 156px, 50vw" alt="project thumbnail" class="card-img" %}
           </div>
+        {% elsif project.icon %}
+          <div class="col-md-6">
+            <h1 class="my-0 p-5 p-sm-3 text-center text-light"><i class="fa fa-3x fa-{{- project.icon -}}"></i></h1>
+          </div>
         {% endif %}
-        <div class="{% if project.img %}col-md-6{% else %}col-md-12{% endif %}">
+        <div class="{% if project.img or project.icon %}col-md-6{% else %}col-md-12{% endif %}">
           <div class="card-body">
             <h3 class="card-title">{{ project.title }}</h3>
             <p class="card-text">{{ project.description }}</p>

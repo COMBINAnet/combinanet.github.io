@@ -1,0 +1,38 @@
+<div class="col mb-4">
+  <a href="{% if entry.redirect %}{{ entry.redirect }}{% else %}{{ entry.url | relative_url }}{% endif %}">
+    <div class="card h-100 hoverable">
+      <div class="row no-gutters">
+        {% if entry.img %}
+          <div class="col-md-6">
+            {% include figure.liquid loading="eager" path=entry.img sizes="(min-width: 768px) 156px, 50vw" alt="" class="card-img" %}
+          </div>
+        {% elsif entry.icon %}
+          <div class="col-md-6">
+            <h1 class="my-0 p-5 p-sm-3 text-center text-light"><i class="fa fa-2x fa-{{- entry.icon -}}"></i></h1>
+          </div>
+        {% endif %}
+        <div class="{% if entry.img or entry.icon %}col-md-6{% else %}col-md-12{% endif %}">
+          <div class="card-body">
+            <h3 class="card-title">{{ entry.title }}</h3>
+            <p class="card-text">{{ entry.description }}</p>
+            <div class="row ml-1 mr-1 p-0">
+              {% if entry.github %}
+                <div class="github-icon">
+                  <div class="icon" data-toggle="tooltip" title="Code Repository">
+                    <a href="{{ entry.github }}"><i class="fa-brands fa-github gh-icon"></i></a>
+                  </div>
+                  {% if entry.github_stars %}
+                    <span class="stars" data-toggle="tooltip" title="GitHub Stars">
+                      <i class="fa-solid fa-star"></i>
+                      <span id="{{ entry.github_stars }}-stars"></span>
+                    </span>
+                  {% endif %}
+                </div>
+              {% endif %}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>

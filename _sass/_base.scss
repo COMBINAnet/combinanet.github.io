@@ -709,6 +709,57 @@ footer.sticky-bottom {
   }
 }
 
+// Collections
+
+.collection {
+  a {
+    text-decoration: none;
+
+    &:hover {
+      .card-title {
+        color: var(--global-theme-color);
+      }
+    }
+  }
+
+  .card {
+    container-type: inline-size;
+
+    img.card-img-top,
+    h1.icon {
+      height: 75cqw;
+      width: 100%;
+      margin-bottom: 0;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    h1.icon {
+      line-height: 75cqw;
+      font-size: 40cqw;
+    }
+  }
+
+  .col {
+    padding-bottom: 1rem;
+  }
+
+  .grid-sizer,
+  .grid-item {
+    width: 250px;
+    margin-bottom: 10px;
+  }
+
+  h2.category {
+    color: var(--global-divider-color);
+    border-bottom: 1px solid var(--global-divider-color);
+    padding-top: 0.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    text-align: right;
+  }
+}
+
 // Publications
 
 .publications {

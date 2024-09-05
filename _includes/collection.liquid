@@ -1,0 +1,51 @@
+{% assign entries = site[include.collection] %}
+
+<div class="collection {{ include.collection }}">
+  {% if site.enable_collection_categories and include.categories %}
+    <!-- Display categorized collection items -->
+    {% for category in include.categories %}
+      <a id="{{ category }}" href="#{{ category }}">
+        <h2 class="category">{{ category | capitalize }}</h2>
+      </a>
+      {% assign entries_sorted = entries | where: 'category', category | sort: 'importance' %}
+
+      <!-- Generate cards -->
+      {% if page.horizontal %}
+        <div class="container">
+          <div class="row row-cols-1 row-cols-md-2">
+            {% for entry in entries_sorted %}
+              {% include collection-card_horizontal.liquid %}
+            {% endfor %}
+          </div>
+        </div>
+      {% else %}
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+          {% for entry in entries_sorted %}
+            {% include collection-card.liquid %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endfor %}
+
+  {% else %}
+    <!-- Display collection entries without categories -->
+    {% assign entries_sorted = entries | sort: 'importance' %}
+
+    <!-- Generate cards -->
+    {% if page.horizontal %}
+      <div class="container">
+        <div class="row row-cols-1 row-cols-md-2">
+          {% for entry in entries_sorted %}
+            {% include collection-card_horizontal.liquid %}
+          {% endfor %}
+        </div>
+      </div>
+    {% else %}
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3">
+        {% for entry in entries_sorted %}
+          {% include collection-card.liquid %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endif %}
+</div>
