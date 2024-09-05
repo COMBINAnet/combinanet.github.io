@@ -408,12 +408,14 @@ external_links:
 
 # MAKE SURE imagemagick is installed and on your PATH before enabling imagemagick. In a terminal, run:
 #   convert -version
+# This plug-in only scales images DOWN. The largest image size listed under `widths` should be
+# *smaller than your smallest image*.
 imagemagick:
   enabled: true # enables responsive images for your site (recommended, see https://github.com/alshedivat/al-folio/issues/537)
   widths:
+    - 200
     - 480
     - 800
-    - 1400
   input_directories:
     - assets/img/
   input_formats:
@@ -423,7 +425,7 @@ imagemagick:
     - ".tiff"
     - ".gif"
   output_formats:
-    webp: "-quality 85"
+    webp: "-quality 50"
 
 # Lazy loading images
 #   If you enable lazy loading, all images will add the loading="lazy" attribute.
