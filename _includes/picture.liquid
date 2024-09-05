@@ -1,0 +1,88 @@
+{% comment %}
+  Arguments:
+    required: path
+    optional:
+      sizes (default: "95vw")
+      cache_bust (default: false) true, false
+      class (default: nil)
+      width (default: "100%")
+      height (default: "auto")
+      min-width (default: nil)
+      min-height (default: nil)
+      max-width (default: nil)
+      max-height (default: nil)
+      alt (default: nil)
+      title (default: nil)
+      zoomable (default: nil) true, false
+      loading (default: "lazy" if site.lazy_loading_images is true, else nil)
+
+  Site variables:
+    site.imagemagick.enabled
+    site.imagemagick.widths
+    site.lazy_loading_images
+{% endcomment %}
+
+{% assign img_path = include.path | remove: '.jpg' | remove: '.jpeg' | remove: '.png' | remove: '.tiff' | remove: '.gif' %}
+
+<picture>
+  {% if site.imagemagick.enabled %}
+    <source
+      class="responsive-img-srcset"
+      srcset="{% for i in site.imagemagick.widths %}{{ img_path | relative_url }}-{{ i }}.webp {{i}}w,{% endfor %}"
+      {% if include.sizes %}
+        sizes="{{include.sizes}}"
+      {% else %}
+        sizes="95vw"
+      {% endif %}
+      type="image/webp"
+    >
+  {% endif %}
+  <img
+    src="{% if include.cache_bust %}{{ include.path | relative_url | bust_file_cache }}{% else %}{{ include.path | relative_url}}{% endif %}"
+    {% if include.class %}
+      class="{{ include.class }}"
+    {% endif %}
+    {% if include.width %}
+      width="{{ include.width }}"
+    {% else %}
+      width="100%"
+    {% endif %}
+    {% if include.height %}
+      height="{{ include.height }}"
+    {% else %}
+      height="auto"
+    {% endif %}
+    {% if include['min-width'] or include['min-height'] or include['max-width'] or include['max-height'] %}
+      style="
+        {% if include['min-width'] %}
+          min-width: {{ include.min-width }};
+        {% endif %}
+        {% if include['min-height'] %}
+          min-height: {{ include.min-height }};
+        {% endif %}
+        {% if include['max-width'] %}
+          max-width: {{ include.max-width }};
+        {% endif %}
+        {% if include['max-height'] %}
+          max-height: {{ include.max-height }};
+        {% endif %}
+      "
+    {% endif %}
+    {% if include.alt %}
+      alt="{{ include.alt }}"
+    {% endif %}
+    {% if include.title %}
+      title="{{ include.title }}"
+    {% endif %}
+    {% if include.zoomable %}
+      data-zoomable
+      data-zoom-src="{% if include.cache_bust %}{{ include.path | relative_url | bust_file_cache }}{% else %}{{ include.path | relative_url}}{% endif %}"
+    {% endif %}
+    {% if include.loading %}
+      loading="{{ include.loading }}"
+    {% elsif site.lazy_loading_images %}
+      loading="lazy"
+    {% endif %}
+    onerror="this.onerror=null; $('.responsive-img-srcset').remove();"
+  >
+</picture>
