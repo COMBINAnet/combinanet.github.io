@@ -240,7 +240,6 @@ exclude:
   - _drafts/_examples/
   - _news/_examples/
   - _pages/_examples/
-  - _pages/about_einstein.md
   - _projects/_examples/
   - bin/
   - CONTRIBUTING.md

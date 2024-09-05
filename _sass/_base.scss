@@ -244,7 +244,6 @@ ul.task-list input[type="checkbox"] {
 // About (Splash)
 
 .layout--about-splash {
-
   .jumbotron--overlay {
     background-position: center;
     background-size: cover;
@@ -255,16 +254,16 @@ ul.task-list input[type="checkbox"] {
       padding: 0.75rem;
     }
 
-    .post-description{
+    .post-description {
       font-size: 1.75rem;
       font-weight: 300;
     }
   }
 
-  article{
+  article {
     aside {
       h2 {
-        color: var(--global-theme-color)
+        color: var(--global-theme-color);
       }
     }
   }
@@ -274,11 +273,10 @@ ul.task-list input[type="checkbox"] {
 
 .layout--people {
   .steering {
-
     figure {
       margin-bottom: 0;
       width: 100%;
-      
+
       picture {
         img {
           height: 100%;
@@ -287,7 +285,6 @@ ul.task-list input[type="checkbox"] {
       }
     }
   }
-
 }
 
 // Navbar customization
