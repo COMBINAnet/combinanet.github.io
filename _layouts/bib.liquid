@@ -31,13 +31,13 @@
         {% else %}
           {% assign entry_path = entry.preview | prepend: '/assets/img/publication_preview/' %}
           {%
-            include figure.liquid
+            include picture.liquid
             loading="eager"
             path=entry_path
-            sizes = "200px"
-            class="preview z-depth-1 rounded"
-            zoomable=true
-            alt=entry.preview
+            sizes="(min-width: 580px) 15vw, 95vw"
+            class="preview z-depth-1"
+            zoomable=false
+            alt=""
           %}
         {% endif %}
       {% endif %}
