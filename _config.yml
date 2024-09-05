@@ -190,12 +190,18 @@ newsletter:
 collections_dir: collections
 
 collections:
+  opportunities:
+    output: true
+    permalink: /:collection/:title/
   news:
     defaults:
       layout: post
     output: true
     permalink: /:collection/:title/
   projects:
+    output: false
+    permalink: /:collection/:title/
+  resources:
     output: true
     permalink: /:collection/:title/
 

@@ -4,7 +4,7 @@ title: Publications
 permalink: /publications/
 description: Publications from our network of collaborators
 nav: true
-nav_order: 4
+nav_order: 5
 ---
 
 <!-- _pages/publications.md -->
