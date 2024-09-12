@@ -1,0 +1,72 @@
+{% comment %}
+  Arguments:
+    required: path (to 1x image; must be accompanied by a 2x image named "name_2x.jpg")
+    optional:
+      cache_bust (default: false) true, false
+      class (default: nil)
+      width (default: "100%")
+      height (default: "auto")
+      min-width (default: nil)
+      min-height (default: nil)
+      max-width (default: nil)
+      max-height (default: nil)
+      alt (default: nil)
+      title (default: nil)
+      loading (default: "lazy" if site.lazy_loading_images is true, else nil)
+
+  Site variables:
+    site.lazy_loading_images
+{% endcomment %}
+
+{% assign img_path = include.path | remove: '.jpg' | remove: '.jpeg' %}
+
+<picture>
+  <source
+    class="responsive-img-srcset"
+    srcset="{{ img_path | relative_url }}.jpg 1x, {{ img_path | relative_url }}_2x.jpg 2x"
+    type="image/jpeg"
+  >
+  <img
+    src="{% if include.cache_bust %}{{ include.path | relative_url | bust_file_cache }}{% else %}{{ include.path | relative_url}}{% endif %}"
+    {% if include.class %}
+      class="{{ include.class }}"
+    {% endif %}
+    {% if include.width %}
+      width="{{ include.width }}"
+    {% else %}
+      width="100%"
+    {% endif %}
+    {% if include.height %}
+      height="{{ include.height }}"
+    {% else %}
+      height="auto"
+    {% endif %}
+    {% if include['min-width'] or include['min-height'] or include['max-width'] or include['max-height'] %}
+      style="
+        {% if include['min-width'] %}
+          min-width: {{ include.min-width }};
+        {% endif %}
+        {% if include['min-height'] %}
+          min-height: {{ include.min-height }};
+        {% endif %}
+        {% if include['max-width'] %}
+          max-width: {{ include.max-width }};
+        {% endif %}
+        {% if include['max-height'] %}
+          max-height: {{ include.max-height }};
+        {% endif %}
+      "
+    {% endif %}
+    {% if include.alt %}
+      alt="{{ include.alt }}"
+    {% endif %}
+    {% if include.title %}
+      title="{{ include.title }}"
+    {% endif %}
+    {% if include.loading %}
+      loading="{{ include.loading }}"
+    {% elsif site.lazy_loading_images %}
+      loading="lazy"
+    {% endif %}
+  >
+</picture>
