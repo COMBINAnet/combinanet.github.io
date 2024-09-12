@@ -12,27 +12,46 @@ classes: layout--people
   <h2 id="steering">Steering Committee</h2>
   <p>A brief description of the role of the steering committee.</p>
 
-  <div class="row justify-content-center py-3">
+  <div class="row row-cols-1 row-cols-md-2 justify-content-center py-3">
   {% for person in site.data.steering %}
     {% include people_horizontal.liquid %}
   {% endfor %}
   </div>
 </section>
 
-{% if site.data.collaborators %}
+{% if site.data.participants_2024 %}
 ---
 
-<section class="network">
-<h2 id="network">Network</h2>
-<p>A brief description of how COMBINA affiliates join and participate in the network.</p>
+<section class="participants">
+  <h2 id="participants-2024">2024 Workshop Participants</h2>
+  <p>Dates, location, theme of 2024 workshop</p>
 
-  {% for collaborator in site.data.collaborators %}
-  <div id = "{{ collaborator.name | replace: ' ', '-' | remove: '.' }}" class="row" style="padding-top: 60px; margin-top: -60px; padding-bottom: 20px;">
-  <strong>{{collaborator.name}}{% if collaborator.degrees %}, {{collaborator.degrees}} {% endif %}</strong><br>  
-    {{collaborator.affiliation}}<br>
-    {% if collaborator.website %} <i class="fa fa-globe"></i> <a href= "{{collaborator.website}}" target="_blank">{{collaborator.website}}</a>  {% endif %}
-  </div>
-  {% endfor %}
-
+  <figure>
+  <img src="/assets/img/workshop_2024.jpg" width="100%" height="auto">
+  <figcaption>Participants at the 2024 COMBINA workshop, in Panamá. Photo: </figcaption>
+  </figure>
+  
+  <dl class="container-grid">
+    {% for person in site.data.participants_2024 %}
+    <div class="card border-light" id="{{ person.name | slugify: "latin" }}">
+      <dt class="px-2 pt-2">{{person.name}}{% if person.degrees %}, {{person.degrees}} {% endif %}</dt>
+      <dd class="px-2 pb-2 text-muted">{{person.affiliation}}</dd>
+      <dd class="card-footer d-flex justify-content-between align-items-center pl-2 pr-3 py-1 ">
+          {% if person.country %}
+            {% assign country_data = site.data.country | where: 'code', person.country | first %}
+            <figure class="country text-muted">
+              <img
+                src="/assets/img/flags/{{- country_data.code -}}.svg"
+                width="30"
+                alt=""
+              >
+              <figcaption class="ml-2">{{- country_data.name -}}</figcaption>
+            </figure>
+          {% endif %}
+          <div>{% include social_people.liquid class="card-link" %}</div>
+        </dd>
+    </div>
+    {% endfor %}
+  </dl>
 </section>
 {% endif %}

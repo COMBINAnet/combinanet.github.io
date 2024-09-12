@@ -1,22 +1,42 @@
-<div class="col-9 col-md-6 py-2">
+<div class="col py-2">
   <div class="card hoverable">
     <div class="container-fluid">
-      <div class="row">
-        <div class="card-img p-0 col-sm-4 d-flex justify-content-center">
-          {% if person.image %}
-            {% include picture.liquid loading=eager path=person.image alt=person.name %}
-          {% else %}
+      <div class="row h-100">
+        {% if person.image %}
+          <div class="p-0 col-sm-4 justify-content-center">
+            {% include picture_jpg1x2x.liquid loading=eager path=person.image alt=person.name height=425px %}
+          </div>
+        {% else %}
+          <div class="p-0 col-sm-4 d-flex justify-content-center">
             <h1 class="mx-auto my-0 p-5 p-sm-3 align-self-center text-light"><i class="fa fa-2x fa-user"></i></h1>
-          {% endif %}
-        </div>
-        <div class="col-sm-8 py-3 align-self-sm-center">
-          <h5 class="card-title">
-            {{ person.name -}}
-            {%- if person.degrees %}, {{ person.degrees }}{% endif %}
+          </div>
+        {% endif %}
+        <div class="card-body col-sm-8 px-3 py-2 align-self-sm-center">
+          <h5 class="card-title mb-1">
+            {{- person.name -}}
+            {% if person.degrees -%}
+              ,
+              {{- person.degrees -}}
+            {% endif %}
           </h5>
-          <p class="card-text">
-            <a href="{{ person.website | relative_url }}">{{ person.affiliation }}</a>
-          </p>
+          {% if person.role -%}
+            <p class="badge badge-light mb-1">{{- person.role -}}</p>
+          {%- endif %}
+          <p class="card-text">{{- person.affiliation -}}</p>
+        </div>
+        <div class="card-footer col d-flex justify-content-between align-items-center pl-2 pr-3 py-2 ">
+          {% if person.country %}
+            {% assign country_data = site.data.country | where: 'code', person.country | first %}
+            <figure class="country text-muted">
+              <img
+                src="/assets/img/flags/{{- country_data.code -}}.svg"
+                width="30"
+                alt=""
+              >
+              <figcaption class="ml-2">{{- country_data.name -}}</figcaption>
+            </figure>
+          {% endif %}
+          <div>{% include social_people.liquid class="card-link" %}</div>
         </div>
       </div>
     </div>

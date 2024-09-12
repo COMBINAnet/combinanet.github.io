@@ -272,17 +272,47 @@ ul.task-list input[type="checkbox"] {
 // People
 
 .layout--people {
-  .steering {
-    figure {
-      margin-bottom: 0;
-      width: 100%;
+  figure.country {
+    margin-bottom: 0;
 
-      picture {
-        img {
-          height: 100%;
-          object-fit: cover;
-        }
+    img {
+      width: 2rem;
+      height: 2rem;
+    }
+
+    figcaption {
+      text-transform: uppercase;
+      font-size: 80%;
+      display: inline;
+    }
+  }
+
+  .card-footer .card-link {
+    font-size: 1.5rem;
+  }
+
+  section.steering {
+    picture {
+      img {
+        object-fit: cover;
       }
+    }
+  }
+
+  section.participants {
+    .container-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-auto-rows: minmax(3rem, auto);
+      gap: 1rem;
+    }
+
+    dt + dd {
+      flex: 1;
+    }
+
+    dd {
+      margin: 0;
     }
   }
 }
