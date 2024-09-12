@@ -2,18 +2,71 @@
 #
 # - name:
 #   degrees: # For people who prefer to list credentials after their name
+#   role: # If they have a specific role on the committee
 #   affiliation:
-#   image: assets/img/people/name.jpg (crop to: 345 x 425)
+#   country: # country code, see country.yml
+#   image: assets/img/people/name.jpg  # supply BOTH name.jpg (345 x 425) and name_2x.jpg (690 x 850)
 #   website:
+#   github_username:
+#   linkedin_username:
+#   orcid_id:
+#   research_gate_profile:
+#   scholar_userid:
+
+- name: Brenda María Soler Figueroa
+  degrees:
+  role: Network Coordinator
+  affiliation: Smithsonian Environmental Research Center
+  country: pr
+  image: assets/img/people/brenda-soler.jpg
+  website: https://serc.si.edu/staff/brenda-mar%C3%ADa-soler-figueroa
+
+- name: Antonio Brante Ramírez
+  degrees:
+  affiliation: Universidad Católica de Concepción
+  country: cl
+  image: assets/img/people/antonio-brante-ramirez.jpg
+  website: https://ciencias.ucsc.cl/autoridades/antonio-brante-ramirez/
+
+- name: James T. Carlton
+  degrees:
+  affiliation: Williams College
+  country: us
+  image: assets/img/people/jim-carlton.jpg
+  website: https://mystic.williams.edu/about/the-faculty/
 
 - name: Amy L. Freestone
   degrees:
   affiliation: Smithsonian Environmental Research Center
-  image: assets/img/people/amy_freestone.jpg
+  country: us
+  image: assets/img/people/amy-freestone.jpg
   website: https://serc.si.edu/staff/amy-freestone
+
+- name: Inti Keith
+  degrees:
+  affiliation: Fundación Charles Darwin
+  country: ec
+  image: assets/img/people/inti-keith.jpg
+  website: https://www.darwinfoundation.org/en/about/our-people2/meet-our-team/inti-keith/
 
 - name: Gregory M. Ruiz
   degrees:
   affiliation: Smithsonian Environmental Research Center
-  image: assets/img/people/greg_ruiz.jpg
+  country: us
+  image: assets/img/people/greg-ruiz.jpg
   website: https://serc.si.edu/staff/gregory-ruiz/
+
+- name: Evangelina Schwindt
+  degrees:
+  affiliation: IBIOMAR-CONICET
+  country: ar
+  image: assets/img/people/evangelina-schwindt.jpg
+  website: https://ibiomar.conicet.gov.ar/
+  research_gate_profile: Evangelina-Schwindt
+
+- name: Mark Torchin
+  degrees:
+  affiliation: Smithsonian Tropical Research Institute
+  country: pa
+  image: assets/img/people/mark-torchin.jpg
+  website: https://stri.si.edu/scientist/mark-torchin
