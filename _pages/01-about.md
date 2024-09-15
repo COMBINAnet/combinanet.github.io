@@ -11,8 +11,8 @@ header:
   overlay_image: /assets/img/4.jpg
   overlay_filter: rgba(255, 255, 255, 0.4) # Color/opacity to overlay on top of overlay image. Example: 0.5 (percent black), rgba(255, 0, 0, 0.5) or linear-gradient.
 
-news: true # includes a list of news items
-selected_papers: true # includes a list of papers marked as "selected={true}"
+news: false # includes a list of news items
+selected_papers: false # includes a list of papers marked as "selected={true}"
 social: false # includes social icons at the bottom of the page
 ---
 

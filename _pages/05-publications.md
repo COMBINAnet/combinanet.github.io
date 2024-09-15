@@ -3,7 +3,7 @@ layout: page
 title: Publications
 permalink: /publications/
 description: Publications from our network of collaborators
-nav: true
+nav: false
 nav_order: 5
 ---
 
