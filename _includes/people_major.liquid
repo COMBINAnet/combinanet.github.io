@@ -1,0 +1,24 @@
+{% comment %}
+  Variables:
+  - include.data: The name of the data file (YAML) containing people information.
+      The name (minus '.yml') is used to look up the data file and as the ID for the section.
+
+  - include.section: CSS class for the section
+  - include.title: Title of the section
+  - include.description: Optional description for the section, parsed as Markdown
+{% endcomment %}
+
+{% assign data_source = include.data | remove: '.yml' %}
+
+<section class="{{ include.section }}">
+  <h2 id="{{ data_source }}">{{ include.title }}</h2>
+  {% if include.description %}
+    <p>{{ include.description | markdownify }}</p>
+  {% endif %}
+
+  <div class="row row-cols-1 row-cols-md-2 justify-content-center py-3">
+    {% for person in site.data[data_source] %}
+      {% include people_horizontal.liquid %}
+    {% endfor %}
+  </div>
+</section>

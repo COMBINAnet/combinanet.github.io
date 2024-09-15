@@ -1,0 +1,40 @@
+{% comment %}
+  Variables:
+  - include.data: The name of the data file (YAML) containing people information
+  - include.section: CSS class and ID for the section
+  - include.title: Title of the section
+  - include.description: Optional description for the section, parsed as Markdown
+{% endcomment %}
+
+{% assign data_source = include.data | remove: '.yml' %}
+
+<section class="{{ include.section }}">
+  <h2 id="{{ data_source }}">{{ include.title }}</h2>
+  {% if include.description %}{{ include.description | markdownify }}{% endif %}
+
+  <dl class="container-grid">
+    {% for person in site.data.[data_source] %}
+      <div class="card border-light" id="{{ person.name | slugify: "latin" }}">
+        <dt class="px-2 pt-2">
+          {{ person.name -}}
+          {%- if person.degrees %}, {{ person.degrees }} {% endif %}
+        </dt>
+        <dd class="px-2 pb-2 text-muted">{{ person.affiliation }}</dd>
+        <dd class="card-footer d-flex justify-content-between align-items-center pl-2 pr-3 py-1 ">
+          {% if person.country %}
+            {% assign country_data = site.data.country | where: 'code', person.country | first %}
+            <figure class="country text-muted">
+              <img
+                src="/assets/img/flags/{{- country_data.code -}}.svg"
+                width="30"
+                alt=""
+              >
+              <figcaption class="ml-2">{{- country_data.name -}}</figcaption>
+            </figure>
+          {% endif %}
+          <div>{% include social_people.liquid class="card-link" %}</div>
+        </dd>
+      </div>
+    {% endfor %}
+  </dl>
+</section>

@@ -282,7 +282,7 @@ ul.task-list input[type="checkbox"] {
 
     figcaption {
       text-transform: uppercase;
-      font-size: 80%;
+      font-size: smaller;
       display: inline;
     }
   }
@@ -307,12 +307,17 @@ ul.task-list input[type="checkbox"] {
       gap: 1rem;
     }
 
+    dt {
+      font-weight: 400;
+    }
+
     dt + dd {
       flex: 1;
     }
 
     dd {
       margin: 0;
+      font-size: smaller;
     }
   }
 }
