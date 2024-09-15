@@ -43,7 +43,15 @@ alert-system:
 community:
   title: Community Engagement & Outreach
   description: |-
-    Our network is working to compile resources to help COMBINA participants engage
-    with their local communities to build awareness and partnerships around locally and
+    COMBINA aims to highlight resources for successful engagement with local 
+    communities to build awareness and partnerships around locally and 
     regionally relevant marine biosecurity issues.
   icon: handshake-angle
+
+training:
+  title: Training & Funding
+  icon: microscope
+
+meetings:
+  title: Meetings & Events
+  icon: calendar-days

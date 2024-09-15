@@ -7,6 +7,6 @@ description: |-
 date: 2019-06-13
 img: assets/img/galapagos-report-cover_2019.jpg
 redirect: /assets/pdf/Informe-Final_Galapagos-2019-Invasions-Workshop.pdf
-importance: 2
+importance: 3
 category: meetings
 ---
