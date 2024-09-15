@@ -1,3 +1,13 @@
+{% if person.role == 'Network Coordinator' %}
+  <a
+    {% if include.class %}
+      class="{{include.class}}"
+    {% endif %}
+    href="mailto:{{ site.email | encode_email }}"
+    title="Email"
+    ><i class="fa-solid fa-envelope"></i
+  ></a>
+{% endif %}
 {% if person.website %}
   <a
     {% if include.class %}
