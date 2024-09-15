@@ -45,9 +45,8 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Link Checker 🔗
-        uses: lycheeverse/lychee-action@v1.9.0
+        uses: lycheeverse/lychee-action@v1.10.0
         with:
           fail: true
-          # removed md files that include liquid tags
-          # remove theme instructions since we will not keep them in sync with this repo
-          args: --user-agent 'curl/7.54' --exclude-path README.md --exclude-path INSTALL.md --exclude-path CUSTOMIZE.md --exclude-path _pages/404.md --exclude-path _pages/_examples/blog.md --exclude-path _drafts/_examples/videos.md --verbose --no-progress './**/*.md' './**/*.html'
+          args: --user-agent 'curl/7.54' --verbose --no-progress './**/*.md' './**/*.html'
+          jobSummary: true
