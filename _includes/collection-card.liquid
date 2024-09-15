@@ -20,7 +20,7 @@
       <div class="card-body">
         <h2 class="card-title">{{- entry.title -}}</h2>
         {% if entry.subtitle %}
-          <div class="card-subtitle mb-2">{{- entry.subtitle -}}</div>
+          <div class="card-subtitle mb-2">{{- entry.subtitle | markdownify -}}</div>
         {% endif %}
         <div class="card-text">{{ entry.description | markdownify }}</div>
       </div>
