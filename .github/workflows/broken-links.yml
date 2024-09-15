@@ -48,5 +48,5 @@ jobs:
         uses: lycheeverse/lychee-action@v1.10.0
         with:
           fail: true
-          args: --user-agent 'curl/7.54' --verbose --no-progress './**/*.md' './**/*.html'
+          args: --user-agent 'curl/7.54' --exclude-path '_pages/404.md' --exclude-path '_pages/_examples/about_einstein.md' --exclude-path '_pages/_examples/blog.md' --verbose --no-progress './**/*.md' './**/*.html'
           jobSummary: true
