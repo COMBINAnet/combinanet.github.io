@@ -2,12 +2,13 @@
   <a href="{% if entry.redirect %}{{ entry.redirect }}{% else %}{{ entry.url | relative_url }}{% endif %}">
     <div class="card h-100 hoverable">
       {% if entry.img %}
+        {% assign alt_text = entry.img_alt | default: 'item thumbnail' %}
         {%
           include picture.liquid
           loading="eager"
           path=entry.img
-          sizes = "(min-width: 768px) 156px, 50vw"
-          alt="item thumbnail"
+          sizes="(min-width: 768px) 156px, 50vw"
+          alt=alt_text
           class="card-img-top"
         %}
       {% elsif entry.icon %}
@@ -17,8 +18,11 @@
         <h1 class="icon text-center text-light"><i class="fa fa-{{- default -}}"></i></h1>
       {% endif %}
       <div class="card-body">
-        <h2 class="card-title">{{ entry.title }}</h2>
-        <p class="card-text">{{ entry.description }}</p>
+        <h2 class="card-title">{{- entry.title -}}</h2>
+        {% if entry.subtitle %}
+          <div class="card-subtitle mb-2">{{- entry.subtitle -}}</div>
+        {% endif %}
+        <div class="card-text">{{ entry.description | markdownify }}</div>
       </div>
       {% if entry.github %}
         <div class="card-footer text-right">
