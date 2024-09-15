@@ -1,5 +1,0 @@
-exclude = [
-  # Their SSL certificate expired and I doubt anyone will fix it
-  'ouroceanpanama2023.gob.pa',
-]
-exclude_path = ['_pages/404.md', '.*/_examples/.*']
