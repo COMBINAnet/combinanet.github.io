@@ -2,7 +2,7 @@
 layout: page
 title: People
 permalink: /people/
-description: Our network of collaborators
+description: An international network connecting scientists, resource managers, and policy-makers
 nav: true
 nav_order: 2
 classes: layout--people
@@ -10,7 +10,6 @@ classes: layout--people
 
 <section class="steering">
   <h2 id="steering">Steering Committee</h2>
-  <p>A brief description of the role of the steering committee.</p>
 
   <div class="row row-cols-1 row-cols-md-2 justify-content-center py-3">
   {% for person in site.data.steering %}
@@ -24,11 +23,11 @@ classes: layout--people
 
 <section class="participants">
   <h2 id="participants-2024">2024 Workshop Participants</h2>
-  <p>Dates, location, theme of 2024 workshop</p>
+  <p>COMBINA was officially launched at a <a href="https://stri.si.edu/story/combina">four day workshop</a> held in Panama City in March, 2024. More than 70 participants from 12 countries attended.</p>
 
   <figure>
   <img src="/assets/img/workshop_2024.jpg" width="100%" height="auto">
-  <figcaption>Participants at the 2024 COMBINA workshop, in Panamá. Photo: </figcaption>
+  <figcaption>Participants at the 2024 COMBINA workshop, in Panama City. Photo: Jorge Aleman.</figcaption>
   </figure>
   
   <dl class="container-grid">
