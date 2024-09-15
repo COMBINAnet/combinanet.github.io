@@ -3,7 +3,7 @@ layout: default
 ---
 <div class="post">
   {% include splash.liquid %}
- 
+
   <article>
     <div>{{ content }}</div>
 
@@ -14,7 +14,7 @@ layout: default
           <a href="{{ '/news/' | relative_url }}">News</a>
         </h2>
         {% include news.liquid limit=true %}
-        </aside>
+      </aside>
     {% endif %}
 
     <!-- Latest posts -->

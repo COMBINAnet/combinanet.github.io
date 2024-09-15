@@ -10,4 +10,3 @@ redirect: /assets/pdf/Informe-Final_Galapagos-2019-Invasions-Workshop.pdf
 importance: 2
 category: meetings
 ---
-
