@@ -12,9 +12,9 @@
         %}
       {% elsif entry.icon %}
         <h1 class="icon text-center text-light"><i class="fa fa-{{- entry.icon -}}"></i></h1>
-      {% elsif site.data['default-icons'][category] %}
-        {% assign default = site.data['default-icons'][category] %}
-        <h1 class="icon text-center text-light"><i class="fa fa-{{- default.icon -}}"></i></h1>
+      {% elsif site.data.categories[category].icon %}
+        {% assign default = site.data.categories[category].icon %}
+        <h1 class="icon text-center text-light"><i class="fa fa-{{- default -}}"></i></h1>
       {% endif %}
       <div class="card-body">
         <h2 class="card-title">{{ entry.title }}</h2>

@@ -1,0 +1,49 @@
+# Format:
+#
+# <key>: name of a category used for a collection
+#   title: longer display name for category when used as a page section heading
+#   description: |-
+#     Brief tag line or comments to display under page section heading. Can use
+#     markdown formatting. The initial "|-" on its own line is important, do not omit!
+#     Everything in the description must be indented. All line breaks will be preserved
+#     when sent onward to the Markdown engine. The final trailing newline and any trailing
+#     blank lines will be stripped.
+#
+#   icon: name of a Font Awesome 6 Free icon to use on cards if collection item does not have a photo
+#         (see: https://fontawesome.com/v6/search?q=place&o=r&m=free)
+#         do *not* include the "fa-" prefix
+
+databases:
+  title: Country and Regional Databases
+  description: |-
+    Detailed information on known non-native species occurrences, ecology, and invasion impacts.
+  icon: database
+
+protocols:
+  title: Standardized Protocols for Detecting Bioinvasions
+  description: |-
+    COMBINA participants have already begun sharing protocols and training at workshops. 
+    Check back soon as we post collaboratively developed and field-tested 
+    standardized protocols to help establish our bioinvasion detection network.
+
+    If you are interested in using this type of resource, please [let us know](/contact).
+
+  icon: clipboard-list
+
+alert-system:
+  title: Alert System for Regional Invasions
+  description: |-
+    We are working to develop alerting systems to help resource managers increase
+    their awareness of species newly reported from adjacent or similar areas and
+    target detection and response effots.
+
+    If you are interested in using this type of resource, please [let us know](/contact).
+  icon: circle-exclamation
+
+community:
+  title: Community Engagement & Outreach
+  description: |-
+    Our network is working to compile resources to help COMBINA participants engage
+    with their local communities to build awareness and partnerships around locally and
+    regionally relevant marine biosecurity issues.
+  icon: handshake-angle
