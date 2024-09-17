@@ -7,6 +7,7 @@ description: |-
 
 img: assets/img/galnemo.jpg
 redirect: https://invasions.si.edu/nemesis/galapagos/
+sitemap: false
 importance: 3
 category: databases
 ---

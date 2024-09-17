@@ -7,6 +7,7 @@ description: |-
 
 img: assets/img/dvex.jpg
 redirect: https://invasions.si.edu/nemesis/
+sitemap: false
 importance: 1
 category: databases
 ---

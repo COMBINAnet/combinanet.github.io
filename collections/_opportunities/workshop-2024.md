@@ -7,6 +7,7 @@ description: |-
 date: 2024-05-30
 img: assets/img/workshop_2024_4x3.jpg
 redirect: https://stri.si.edu/story/combina
+sitemap: false
 importance: 2
 category: meetings
 ---

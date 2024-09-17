@@ -7,6 +7,7 @@ description: |
 
 img: assets/img/mathilde-schulte-gatun_2022_david-stanley.jpg
 redirect: https://invasions.si.edu/nemesis/panama/
+sitemap: false
 importance: 4
 category: databases
 ---

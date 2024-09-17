@@ -7,6 +7,7 @@ description: |
 
 img: assets/img/carcinus-lg.jpg
 redirect: https://invasions.si.edu/nemesis/calnemo/
+sitemap: false
 importance: 2
 category: databases
 ---

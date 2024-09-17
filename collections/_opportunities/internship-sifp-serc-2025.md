@@ -13,6 +13,7 @@ date: 2024-08-30
 deadline: 2024-10-15
 img: assets/img/serc-sifp-2024.jpg
 redirect: https://serc.si.edu/fellowships/opportunities/smithsonian-institution-fellowship-program-at-serc
+sitemap: false
 importance: 1
 category: training
 ---
