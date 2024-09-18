@@ -68,7 +68,7 @@
 {% elsif site.icon != blank -%}
   <link rel="shortcut icon" href="{{ site.icon | prepend: '/assets/img/' | relative_url | bust_file_cache}}">
 {% endif -%}
-<link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+<link rel="canonical" href="{{ page.url | replace:'index.html','' | relative_url | prepend: site.customurl }}">
 
 {% if page.layout == 'about-splash' -%}
   <!-- Preload hero image -->
