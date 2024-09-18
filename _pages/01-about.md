@@ -8,8 +8,20 @@ subtitle: Coastal Ocean Marine Biosecurity International Network of the Americas
 # See documentation: https://mmistakes.github.io/minimal-mistakes/docs/layouts/#header-overlay
 
 header:
-  overlay_image: /assets/img/4.jpg
-  overlay_filter: rgba(255, 255, 255, 0.4) # Color/opacity to overlay on top of overlay image. Example: 0.5 (percent black), rgba(255, 0, 0, 0.5) or linear-gradient.
+  overlay_image: assets/img/4.jpg
+  # To supply an image-set, use a sequence of mappings. 
+  # The LAST image will be used as a fallback for browsers that do not support CSS image-set.
+  # It doesn't matter what order resolutions go in, but preferred types should
+  # be listed first.
+  #  - path: assets/img/4.webp
+  #    res: 1x
+  #    type: image/jpeg
+  #  - path: assets/img/4.jpg
+  #    res: 1x
+  #    type: image/jpeg
+  overlay_filter: rgba(255, 255, 255, 0.4) 
+  # Color/opacity to overlay on top of overlay image. 
+  # Example: 0.5 (percent black), rgba(255, 0, 0, 0.5) or linear-gradient.
 
 news: false # includes a list of news items
 selected_papers: false # includes a list of papers marked as "selected={true}"

@@ -1,32 +1,48 @@
 {% comment %} Adapted from: https://github.com/mmistakes/minimal-mistakes/commit/ed883ea2d46f0480103a239ca2fe0a91faf09680 {% endcomment %}
 
-{% capture overlay_img_path %}{{ page.header.overlay_image | relative_url }}{% endcapture %}
-
-{% if page.header.overlay_filter contains 'gradient' %}
+{% if page.header.overlay_filter contains 'gradient' -%}
   {% capture overlay_filter %}{{ page.header.overlay_filter }}{% endcapture %}
-{% elsif page.header.overlay_filter contains 'rgba' %}
+{% elsif page.header.overlay_filter contains 'rgba' -%}
   {% capture overlay_filter %}{{ page.header.overlay_filter }}{% endcapture %}
   {% capture overlay_filter %}linear-gradient({{ overlay_filter }}, {{ overlay_filter }}){% endcapture %}
-{% elsif page.header.overlay_filter %}
+{% elsif page.header.overlay_filter -%}
   {% capture overlay_filter %}rgba(0, 0, 0, {{ page.header.overlay_filter }}){% endcapture %}
   {% capture overlay_filter %}linear-gradient({{ overlay_filter }}, {{ overlay_filter }}){% endcapture %}
-{% endif %}
+{% endif -%}
 
+{%- capture header_style %}
+  {%- if page.header.overlay_color -%}background-color: {{ page.header.overlay_color | default: 'transparent' }};{%- endif -%}
+  {% if page.header.overlay_image.path %}
+    {%- assign overlay_img_set = page.header.overlay_image %}
+    background-image: {% if overlay_filter %}{{ overlay_filter }}, {% endif -%}
+    url('{{ overlay_img_set.last.path | relative_url }}');
+    background-image: {% if overlay_filter %}{{ overlay_filter }}, {% endif -%}
+    image-set(
+      {%- for img in overlay_img_set -%}
+        url('{{img.path | relative_url }}') {{- img.res }} {% if img.type %}type({{ img.type }}){% endif %}{% unless forloop.last %}, {% endunless %}
+      {%- endfor -%}
+    );
+  {%- elsif page.header.overlay_image -%}
+    {%- assign overlay_img_path = page.header.overlay_image | relative_url -%}
+    background-image: {% if overlay_filter %}{{ overlay_filter }}, {% endif -%}
+    url('{{ overlay_img_path }}');
+  {%- endif -%}
+{% endcapture -%}
 <header
   class="post-header jumbotron jumbotron{% if page.header.overlay_color or page.header.overlay_image %}--overlay{% endif %}"
-  style="{% if page.header.overlay_color %}background-color: {{ page.header.overlay_color | default: 'transparent' }};{% endif %} {% if overlay_img_path %}background-image: {% if overlay_filter %}{{ overlay_filter }}, {% endif %}url('{{ overlay_img_path }}');{% endif %}"
+  style="{{ header_style }}"
 >
   <div class="wrapper">
     <h1 class="post-title site-title">
-      {% if site.title == 'blank' %}
-        {{ site.first_name }}
+      {%- if site.title == 'blank' -%}
+        {{- site.first_name -}}
         <span class="font-weight-lighter">
           {{- site.middle_name }}
           {{ site.last_name -}}
         </span>
-      {% else %}
+      {%- else -%}
         {{ site.title }}
-      {% endif %}
+      {%- endif -%}
     </h1>
     <p class="post-description h3">{{ page.subtitle }}</p>
   </div>
