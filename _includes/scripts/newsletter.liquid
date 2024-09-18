@@ -1,14 +1,14 @@
 <div
   class="newsletter-form-container"
-  {% if include.center %}
+  {%- if include['center-'] -%}
     style="margin: 20px"
-  {% endif %}
+  {%- endif -%}
 >
   <form
     class="newsletter-form"
     action="https://app.loops.so/api/newsletter-form/{{ site.newsletter.endpoint }}"
     method="POST"
-    style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}"
+    style="justify-content: {%-if include.left-%}flex-start{%-elsif include.right-%}flex-end{%-else-%}center{%-endif-%}"
   >
     <input
       class="newsletter-form-input"
@@ -21,7 +21,7 @@
     <button
       type="submit"
       class="newsletter-form-button"
-      style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}"
+      style="justify-content: {%-if include.left-%}flex-start{%-elsif include.right-%}flex-end{%-else-%}center{%-endif-%}"
     >
       subscribe
     </button>
@@ -29,7 +29,7 @@
     <button
       type="button"
       class="newsletter-loading-button"
-      style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}"
+      style="justify-content: {%-if include.left-%}flex-start{%-elsif include.right-%}flex-end{%-else-%}center{%-endif-%}"
     >
       Please wait...
     </button>
@@ -37,14 +37,14 @@
 
   <div
     class="newsletter-success"
-    style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}"
+    style="justify-content: {%-if include.left-%}flex-start{%-elsif include.right-%}flex-end{%-else-%}center{%-endif-%}"
   >
     <p class="newsletter-success-message">You're subscribed!</p>
   </div>
 
   <div
     class="newsletter-error"
-    style="justify-content: {% if include.left %}flex-start{% elsif include.right %}flex-end{% else %}center{% endif %}"
+    style="justify-content: {%-if include.left-%}flex-start{%-elsif include.right-%}flex-end{%-else-%}center{%-endif-%}"
   >
     <p class="newsletter-error-message">Oops! Something went wrong, please try again</p>
   </div>

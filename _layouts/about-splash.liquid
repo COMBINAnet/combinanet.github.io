@@ -2,52 +2,48 @@
 layout: default
 ---
 <div class="post">
-  {% include splash.liquid %}
+  {%- include splash.liquid %}
 
   <article>
     <div>{{ content }}</div>
 
-    <!-- News -->
-    {% if page.news and site.announcements.enabled %}
+    {% if page.news and site.announcements.enabled -%}
+      <!-- News -->
       <aside>
         <h2 class="mt-5 mb-3">
           <a href="{{ '/news/' | relative_url }}">News</a>
         </h2>
         {% include news.liquid limit=true %}
       </aside>
-    {% endif %}
-
-    <!-- Latest posts -->
-    {% if site.latest_posts.enabled %}
+    {% endif -%}
+    {% if site.latest_posts.enabled -%}
+      <!-- Latest posts -->
       <aside>
         <h2 class="mt-5 mb-3">
           <a href="{{ '/blog/' | relative_url }}">Latest posts</a>
         </h2>
         {% include latest_posts.liquid %}
       </aside>
-    {% endif %}
-
-    <!-- Selected papers -->
-    {% if page.selected_papers %}
+    {% endif -%}
+    {% if page.selected_papers -%}
+      <!-- Selected papers -->
       <aside>
         <h2 class="mt-5 mb-3">
           <a href="{{ '/publications/' | relative_url }}">Selected publications</a>
         </h2>
         {% include selected_papers.liquid %}
       </aside>
-    {% endif %}
-
-    <!-- Social -->
-    {% if page.social %}
+    {% endif -%}
+    {% if page.social -%}
+      <!-- Social -->
       <aside class="social mt-5">
         <div class="contact-icons">{% include social.liquid %}</div>
 
         <div class="contact-note">{{ site.contact_note }}</div>
       </aside>
-    {% endif %}
-
-    {% if site.newsletter.enabled and site.footer_fixed %}
+    {% endif -%}
+    {% if site.newsletter.enabled and site.footer_fixed -%}
       {% include scripts/newsletter.liquid center=true %}
-    {% endif %}
+    {% endif -%}
   </article>
 </div>

@@ -1,4 +1,4 @@
-{% if site.search_enabled %}
+{% if site.search_enabled -%}
   <script type="module" src="{{ '/assets/js/search/ninja-keys.min.js' | relative_url | bust_file_cache }}"></script>
   <ninja-keys hideBreadcrumbs noAutoLoadMdIcons placeholder="Type to start searching"></ninja-keys>
   <script>
@@ -26,9 +26,9 @@
 
     // add the home and posts menu items
     ninja.data = [
-      {%- for page in site.pages -%}
-        {%- if page.permalink == '/' -%}{%- assign about_title = page.title | strip -%}{%- endif -%}
-      {%- endfor -%}
+      {%- for page in site.pages %}
+        {%- if page.permalink == '/' %}{%- assign about_title = page.title | strip -%}{% endif -%}
+      {% endfor -%}
       {
         id: "nav-{{ about_title | slugify }}",
         title: "{{ about_title | truncatewords: 13 }}",
@@ -38,14 +38,14 @@
         },
       },
       {%- assign sorted_pages = site.pages | sort: "nav_order" -%}
-      {%- for p in sorted_pages -%}
-        {%- if p.nav and p.autogen == null -%}
-          {%- if p.dropdown -%}
-            {%- for child in p.children -%}
-              {%- unless child.title == 'divider' -%}
+      {% for p in sorted_pages -%}
+        {%- if p.nav and p.autogen == null %}
+          {%- if p.dropdown %}
+            {%- for child in p.children %}
+              {%- unless child.title == 'divider' %}
                 {
                   {%- assign title = child.title | escape | strip -%}
-                  {%- if child.permalink contains "/blog/" -%}{%- assign url = "/blog/" -%} {%- else -%}{%- assign url = child.url -%}{%- endif -%}
+                  {%- if child.permalink contains "/blog/" %}{% assign url = "/blog/" %} {% else %}{% assign url = child.url %}{% endif %}
                   id: "dropdown-{{ title | slugify }}",
                   title: "{{ title | truncatewords: 13 }}",
                   description: "{{ child.description | strip_html | strip_newlines | escape | strip }}",
@@ -54,13 +54,13 @@
                     window.location.href = "{{ url | relative_url }}";
                   },
                 },
-              {%- endunless -%}
-            {%- endfor -%}
+              {% endunless -%}
+            {% endfor -%}
 
-          {%- else -%}
+          {%- else %}
             {
-              {%- assign title = p.title | escape | strip -%}
-              {%- if p.permalink contains "/blog/" -%}{%- assign url = "/blog/" -%} {%- else -%}{%- assign url = p.url -%}{%- endif -%}
+              {% assign title = p.title | escape | strip -%}
+              {%- if p.permalink contains "/blog/" %}{%- assign url = "/blog/" %} {% else -%}{%- assign url = p.url -%}{% endif -%}
               id: "nav-{{ title | slugify }}",
               title: "{{ title | truncatewords: 13 }}",
               description: "{{ p.description | strip_html | strip_newlines | escape | strip }}",
@@ -69,18 +69,18 @@
                 window.location.href = "{{ url | relative_url }}";
               },
             },
-          {%- endif -%}
-        {%- endif -%}
-      {%- endfor -%}
-      {%- for post in site.posts -%}
+          {% endif -%}
+        {% endif -%}
+      {% endfor -%}
+      {%- for post in site.posts %}
         {
-          {%- assign title = post.title | escape | strip -%}
+          {%- assign title = post.title | escape | strip %}
           id: "post-{{ title | slugify }}",
-          {% if post.redirect == blank %}
+          {% if post.redirect == blank -%}
             title: "{{ title | truncatewords: 13 }}",
-          {% elsif post.redirect contains '://' %}
+          {% elsif post.redirect contains '://' -%}
             title: '{{ title | truncatewords: 13 }} <svg width="1.2rem" height="1.2rem" top=".5rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"><path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path></svg>',
-          {% else %}
+          {% else -%}
             title: "{{ title | truncatewords: 13 }}",
           {% endif %}
           description: "{{ post.description | strip_html | strip_newlines | escape | strip }}",
@@ -95,17 +95,17 @@
             {% endif %}
           },
         },
-      {%- endfor -%}
-      {%- for collection in site.collections -%}
-        {%- if collection.label != 'posts' -%}
-          {% if collection.output %}
-            {%- for item in collection.docs -%}
+      {% endfor -%}
+      {%- for collection in site.collections %}
+        {%- if collection.label != 'posts' %}
+          {%- if collection.output %}
+            {%- for item in collection.docs %}
               {
-                {%- if item.inline -%}
+                {%- if item.inline %}
                   {%- assign title = item.content | newline_to_br | replace: "<br />", " " | replace: "<br/>", " " | strip_html | strip_newlines | escape | strip -%}
-                {%- else -%}
+                {% else %}
                   {%- assign title = item.title | newline_to_br | replace: "<br />", " " | replace: "<br/>", " " | strip_html | strip_newlines | escape | strip -%}
-                {%- endif -%}
+                {% endif %}
                 id: "{{ collection.label }}-{{ title | slugify }}",
                 title: '{{ title | emojify | truncatewords: 13 }}',
                 description: "{{ item.description | strip_html | strip_newlines | escape | strip }}",
@@ -116,12 +116,12 @@
                   },
                 {%- endunless -%}
               },
-            {%- endfor -%}
-        {%- endif -%}
-        {%- endif -%}
-      {%- endfor -%}
-      {%- if site.socials_in_search -%}
-        {%- if site.email -%}
+            {% endfor -%}
+        {% endif -%}
+        {% endif -%}
+      {% endfor -%}
+      {%- if site.socials_in_search %}
+        {%- if site.email %}
           {
             id: 'socials-email',
             title: 'Send email',
@@ -130,8 +130,8 @@
               window.open("mailto:{{ site.email | encode_email }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.telegram_username -%}
+        {% endif -%}
+        {%- if site.telegram_username %}
           {
             id: 'socials-telegram',
             title: 'Telegram',
@@ -140,8 +140,8 @@
               window.open("https://telegram.me/{{ site.telegram_username }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.whatsapp_number -%}
+        {% endif -%}
+        {%- if site.whatsapp_number %}
           {
             id: 'socials-whatsapp',
             title: 'WhatsApp',
@@ -150,8 +150,8 @@
               window.open("https://wa.me/{{ site.whatsapp_number }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.orcid_id -%}
+        {% endif -%}
+        {%- if site.orcid_id %}
           {
             id: 'socials-orcid',
             title: 'ORCID',
@@ -160,8 +160,8 @@
               window.open("https://orcid.org/{{ site.orcid_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.scholar_userid -%}
+        {% endif -%}
+        {%- if site.scholar_userid %}
           {
             id: 'socials-google-scholar',
             title: 'Google Scholar',
@@ -170,8 +170,8 @@
               window.open("https://scholar.google.com/citations?user={{ site.scholar_userid }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.semanticscholar_id -%}
+        {% endif -%}
+        {%- if site.semanticscholar_id %}
           {
             id: 'socials-semantic-scholar',
             title: 'Semantic Scholar',
@@ -180,8 +180,8 @@
               window.open("https://www.semanticscholar.org/author/{{ site.semanticscholar_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.publons_id -%}
+        {% endif -%}
+        {%- if site.publons_id %}
           {
             id: 'socials-publons',
             title: 'Publons',
@@ -190,8 +190,8 @@
               window.open("https://publons.com/a/{{ site.publons_id }}/", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.lattes_id -%}
+        {% endif -%}
+        {%- if site.lattes_id %}
           {
             id: 'socials-lattes',
             title: 'Lattes',
@@ -200,8 +200,8 @@
               window.open("http://lattes.cnpq.br/{{ site.lattes_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.osf_id -%}
+        {% endif -%}
+        {%- if site.osf_id %}
           {
             id: 'socials-open-science-framework',
             title: 'Open Science Framework',
@@ -210,8 +210,8 @@
               window.open("https://osf.io/{{ site.osf_id }}/", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.research_gate_profile -%}
+        {% endif -%}
+        {%- if site.research_gate_profile %}
           {
             id: 'socials-researchgate',
             title: 'ResearchGate',
@@ -220,8 +220,8 @@
               window.open("https://www.researchgate.net/profile/{{site.research_gate_profile}}/", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.ieee_id -%}
+        {% endif -%}
+        {%- if site.ieee_id %}
           {
             id: 'socials-ieee-xplore',
             title: 'IEEE Xplore',
@@ -230,8 +230,8 @@
               window.open("https://ieeexplore.ieee.org/author/{{site.ieee_id}}/", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.acm_id -%}
+        {% endif -%}
+        {%- if site.acm_id %}
           {
             id: 'socials-acm-dl',
             title: 'ACM DL',
@@ -240,8 +240,8 @@
               window.open("https://dl.acm.org/profile/{{site.acm_id}}/", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.scopus_id -%}
+        {% endif -%}
+        {%- if site.scopus_id %}
           {
             id: 'socials-scopus',
             title: 'Scopus',
@@ -250,8 +250,8 @@
               window.open("https://www.scopus.com/authid/detail.uri?authorId={{site.scopus_id}}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.github_username -%}
+        {% endif -%}
+        {%- if site.github_username %}
           {
             id: 'socials-github',
             title: 'GitHub',
@@ -260,8 +260,8 @@
               window.open("https://github.com/{{ site.github_username }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.linkedin_username -%}
+        {% endif -%}
+        {%- if site.linkedin_username %}
           {
             id: 'socials-linkedin',
             title: 'LinkedIn',
@@ -270,8 +270,8 @@
               window.open("https://www.linkedin.com/in/{{ site.linkedin_username }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.x_username -%}
+        {% endif -%}
+        {%- if site.x_username %}
           {
             id: 'socials-x',
             title: 'X',
@@ -281,8 +281,8 @@
               window.open("https://twitter.com/{{ site.x_username }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.mastodon_username -%}
+        {% endif -%}
+        {%- if site.mastodon_username %}
           {
             id: 'socials-mastodon',
             title: 'Mastodon',
@@ -291,8 +291,8 @@
               window.open("https://{{ site.mastodon_username  }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.medium_username -%}
+        {% endif -%}
+        {%- if site.medium_username %}
           {
             id: 'socials-medium',
             title: 'Medium',
@@ -301,8 +301,8 @@
               window.open("https://medium.com/@{{ site.medium_username }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.quora_username -%}
+        {% endif -%}
+        {%- if site.quora_username %}
           {
             id: 'socials-quora',
             title: 'Quora',
@@ -311,8 +311,8 @@
               window.open("https://www.quora.com/profile/{{ site.quora_username }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.flickr_id -%}
+        {% endif -%}
+        {%- if site.flickr_id %}
           {
             id: 'socials-flickr',
             title: 'Flickr',
@@ -321,8 +321,8 @@
               window.open("https://www.flickr.com/{{ site.flickr_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.blogger_url -%}
+        {% endif -%}
+        {%- if site.blogger_url %}
           {
             id: 'socials-blogger',
             title: 'Blogger',
@@ -331,8 +331,8 @@
               window.open("{{ site.blogger_url }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.work_url -%}
+        {% endif -%}
+        {%- if site.work_url %}
           {
             id: 'socials-work',
             title: 'Work',
@@ -341,8 +341,8 @@
               window.open("{{ site.work_url }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.wikidata_id -%}
+        {% endif -%}
+        {%- if site.wikidata_id %}
           {
             id: 'socials-wikidata',
             title: 'Wikidata',
@@ -351,8 +351,8 @@
               window.open("https://www.wikidata.org/wiki/{{ site.wikidata_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.wikipedia_id -%}
+        {% endif -%}
+        {%- if site.wikipedia_id %}
           {
             id: 'socials-wikipedia',
             title: 'Wikipedia',
@@ -361,8 +361,8 @@
               window.open("https://wikipedia.org/wiki/User:{{ site.wikipedia_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.strava_userid -%}
+        {% endif -%}
+        {%- if site.strava_userid %}
           {
             id: 'socials-strava',
             title: 'Strava',
@@ -371,8 +371,8 @@
               window.open("https://www.strava.com/athletes/{{ site.strava_userid }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.keybase_username -%}
+        {% endif -%}
+        {%- if site.keybase_username %}
           {
             id: 'socials-keybase',
             title: 'Keybase',
@@ -381,8 +381,8 @@
               window.open("https://keybase.io/{{ site.keybase_username }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.gitlab_username -%}
+        {% endif -%}
+        {%- if site.gitlab_username %}
           {
             id: 'socials-gitlab',
             title: 'GitLab',
@@ -391,8 +391,8 @@
               window.open("https://gitlab.com/{{ site.gitlab_username }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.dblp_url -%}
+        {% endif -%}
+        {%- if site.dblp_url %}
           {
             id: 'socials-dblp',
             title: 'DBLP',
@@ -401,8 +401,8 @@
               window.open("{{ site.dblp_url }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.stackoverflow_id -%}
+        {% endif -%}
+        {%- if site.stackoverflow_id %}
           {
             id: 'socials-stackoverflow',
             title: 'Stackoverflow',
@@ -411,8 +411,8 @@
               window.open("https://stackoverflow.com/users/{{ site.stackoverflow_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.kaggle_id -%}
+        {% endif -%}
+        {%- if site.kaggle_id %}
           {
             id: 'socials-kaggle',
             title: 'Kaggle',
@@ -421,8 +421,8 @@
               window.open("https://www.kaggle.com/{{ site.kaggle_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.lastfm_id -%}
+        {% endif -%}
+        {%- if site.lastfm_id %}
           {
             id: 'socials-last-fm',
             title: 'Last FM',
@@ -431,8 +431,8 @@
               window.open("https://www.last.fm/user/{{ site.lastfm_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.spotify_id -%}
+        {% endif -%}
+        {%- if site.spotify_id %}
           {
             id: 'socials-spotify',
             title: 'Spotify',
@@ -441,8 +441,8 @@
               window.open("https://open.spotify.com/user/{{ site.spotify_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.pinterest_id -%}
+        {% endif -%}
+        {%- if site.pinterest_id %}
           {
             id: 'socials-pinterest',
             title: 'Pinterest',
@@ -451,8 +451,8 @@
               window.open("https://www.pinterest.com/{{ site.pinterest_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.unsplash_id -%}
+        {% endif -%}
+        {%- if site.unsplash_id %}
           {
             id: 'socials-unsplash',
             title: 'Unsplash',
@@ -461,8 +461,8 @@
               window.open("https://unsplash.com/@{{ site.unsplash_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.instagram_id -%}
+        {% endif -%}
+        {%- if site.instagram_id %}
           {
             id: 'socials-instagram',
             title: 'Instagram',
@@ -471,8 +471,8 @@
               window.open("https://instagram.com/{{ site.instagram_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.facebook_id -%}
+        {% endif -%}
+        {%- if site.facebook_id %}
           {
             id: 'socials-facebook',
             title: 'Facebook',
@@ -481,8 +481,8 @@
               window.open("https://facebook.com/{{ site.facebook_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.bluesky_url -%}
+        {% endif -%}
+        {%- if site.bluesky_url %}
           {
             id: 'socials-bluesky',
             title: 'Bluesky',
@@ -491,8 +491,8 @@
               window.open("https://bsky.app/profile/{{ site.bluesky_url }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.youtube_id -%}
+        {% endif -%}
+        {%- if site.youtube_id %}
           {
             id: 'socials-youtube',
             title: 'YouTube',
@@ -501,8 +501,8 @@
               window.open("https://youtube.com/@{{ site.youtube_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.discord_id -%}
+        {% endif -%}
+        {%- if site.discord_id %}
           {
             id: 'socials-discord',
             title: 'Discord',
@@ -511,8 +511,8 @@
               window.open("https://discord.com/users/{{ site.discord_id }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.zotero_username -%}
+        {% endif -%}
+        {%- if site.zotero_username %}
           {
             id: 'socials-zotero',
             title: 'Zotero',
@@ -521,8 +521,8 @@
               window.open("https://www.zotero.org/{{ site.zotero_username }}", "_blank");
             },
           },
-        {%- endif -%}
-        {%- if site.rss_icon -%}
+        {% endif -%}
+        {%- if site.rss_icon %}
           {
             id: 'socials-rss',
             title: 'RSS Feed',
@@ -531,22 +531,9 @@
               window.open("{{ site.baseurl }}/feed.xml", "_blank");
             },
           },
-        {%- endif -%}
-        {%- comment -%}
-        {%- if site.wechat_qr -%}
-          // check how to add wechat qr code
-          {
-            id: 'socials-wechat',
-            title: 'WeChat',
-            section: 'Socials',
-            handler: () => {
-              window.open("", "_blank");
-            },
-          },
-        {%- endif -%}
-        {%- endcomment -%}
-      {%- endif -%}
-      {%- if site.enable_darkmode -%}
+        {% endif -%}
+      {% endif -%}
+      {%- if site.enable_darkmode %}
         {
           id: 'light-theme',
           title: 'Change theme to light',
@@ -574,8 +561,8 @@
             setThemeSetting("system");
           },
         },
-      {%- endif -%}
+      {% endif -%}
     ];
   </script>
   <script src="{{ '/assets/js/shortcut-key.js' | relative_url | bust_file_cache }}"></script>
-{% endif %}
+{% endif -%}

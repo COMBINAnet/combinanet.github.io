@@ -1,16 +1,16 @@
-{% if page.chart and page.chart.echarts %}
+{% if page.chart and page.chart['echarts-'] -%}
   <script
     src="{{ site.third_party_libraries.echarts.url.js.library }}"
     integrity="{{ site.third_party_libraries.echarts.integrity.js.library }}"
     crossorigin="anonymous"
   ></script>
-  {% if site.enable_darkmode %}
+  {%- if site['enable_darkmode-'] %}
     <script
       src="{{ site.third_party_libraries.echarts.url.js.dark_theme }}"
       integrity="{{ site.third_party_libraries.echarts.integrity.js.dark_theme }}"
       crossorigin="anonymous"
     ></script>
-  {% endif %}
+  {%- endif %}
   <script>
     let echartsTheme = determineComputedTheme();
 
@@ -42,4 +42,4 @@
       }
     });
   </script>
-{% endif %}
+{% endif -%}

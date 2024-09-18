@@ -1,5 +1,6 @@
 <!-- Metadata, OpenGraph and Schema.org -->
 {% include metadata.liquid %}
+<!-- Styles -->
 
 <!-- Bootstrap & MDB -->
 <link rel="stylesheet" href="{{ '/assets/css/bootstrap.min.css' | relative_url | bust_file_cache }}">
@@ -10,8 +11,8 @@
   crossorigin="anonymous"
 >
 
-<!-- Bootstrap Table -->
-{% if page.pretty_table %}
+{% if page.pretty_table -%}
+  <!-- Bootstrap Table -->
   <link
     defer
     rel="stylesheet"
@@ -19,7 +20,7 @@
     integrity="{{ site.third_party_libraries.bootstrap-table.integrity.css }}"
     crossorigin="anonymous"
   >
-{% endif %}
+{% endif -%}
 
 <!-- Fonts & Icons -->
 <link defer rel="stylesheet" href="{{ '/assets/css/academicons.min.css' | relative_url | bust_file_cache }}">
@@ -30,6 +31,11 @@
   href="{{ site.third_party_libraries.google_fonts.url.fonts }}"
 >
 
+{% if page.toc and page.toc.sidebar -%}
+  <!-- Sidebar Table of Contents -->
+  <link defer href="{{ '/assets/css/bootstrap-toc.min.css' | relative_url | bust_file_cache }}" rel="stylesheet">
+{% endif -%}
+
 <!-- Code Syntax Highlighting -->
 <link
   defer
@@ -39,15 +45,8 @@
   id="highlight_theme_light"
 >
 
-{% if page.toc and page.toc.sidebar %}
-  <!-- Sidebar Table of Contents -->
-  <link defer href="{{ '/assets/css/bootstrap-toc.min.css' | relative_url | bust_file_cache }}" rel="stylesheet">
-{% endif %}
-
-<!-- Styles -->
-
-<!-- pseudocode -->
-{% if page.pseudocode %}
+{% if page.pseudocode -%}
+  <!-- pseudocode -->
   <link
     defer
     rel="stylesheet"
@@ -55,22 +54,37 @@
     integrity="{{ site.third_party_libraries.pseudocode.integrity.css }}"
     crossorigin="anonymous"
   >
-{% endif %}
+{% endif -%}
 
-{% if site.icon.size <= 4 %}
+<!-- Custom styles -->
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url | bust_css_cache }}">
+
+<!-- Favicon & Canonical -->
+{% if site.icon.size <= 4 -%}
   <link
     rel="shortcut icon"
     href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>{{ site.icon }}</text></svg>"
   >
-{% elsif site.icon != blank %}
+{% elsif site.icon != blank -%}
   <link rel="shortcut icon" href="{{ site.icon | prepend: '/assets/img/' | relative_url | bust_file_cache}}">
-{% endif %}
-<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url | bust_css_cache }}">
+{% endif -%}
 <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+
+{% if page.layout == 'about-splash' -%}
+  <!-- Preload hero image -->
+  {% capture hero -%}
+  {%-  if page.overlay_image.path %}
+    {{ page.overlay_image.last.path | relative_url }}
+  {%- elsif page.overlay_image %}
+    {{ page.overlay_image | relative_url }}
+  {%- endif %}
+{% endcapture -%}
+  <link rel="preload" as="image" href="{{ hero }}">
+{% endif -%}
 
 <!-- Dark Mode -->
 <script src="{{ '/assets/js/theme.js' | relative_url | bust_file_cache }}"></script>
-{% if site.enable_darkmode %}
+{% if site.enable_darkmode -%}
   <link
     defer
     rel="stylesheet"
@@ -81,10 +95,10 @@
   <script>
     initTheme();
   </script>
-{% endif %}
+{% endif -%}
 
-<!-- GeoJSON support via Leaflet -->
-{% if page.map %}
+{% if page.map -%}
+  <!-- GeoJSON support via Leaflet -->
   <link
     defer
     rel="stylesheet"
@@ -92,10 +106,10 @@
     integrity="{{ site.third_party_libraries.leaflet.integrity.css }}"
     crossorigin="anonymous"
   >
-{% endif %}
+{% endif -%}
 
-<!-- diff2html -->
-{% if page.code_diff %}
+{% if page.code_diff -%}
+  <!-- diff2html -->
   <link
     defer
     rel="stylesheet"
@@ -119,9 +133,9 @@
     integrity="{{ site.third_party_libraries.diff2html.integrity.css }}"
     crossorigin="anonymous"
   >
-{% endif %}
+{% endif -%}
 
-{% if page.images %}
+{% if page.images -%}
   <!-- Image comparison slider -->
   {% if page.images.compare %}
     <link
@@ -142,8 +156,9 @@
       crossorigin="anonymous"
     >
   {% endif %}
-{% endif %}
+{% endif -%}
 
-{% if page.tikzjax %}
+{% if page.tikzjax -%}
+  <!-- TikzJax -->
   <link defer rel="stylesheet" type="text/css" href="https://tikzjax.com/v1/fonts.css">
-{% endif %}
+{% endif -%}

@@ -1,12 +1,12 @@
-{% if site.enable_tooltips %}
+{% if site.enable_tooltips -%}
   <!-- Enable Tooltips -->
   <script type="text/javascript">
     $(function () {
       $('[data-toggle="tooltip"]').tooltip();
     });
   </script>
-{% endif %}
-{% if site.enable_medium_zoom %}
+{% endif -%}
+{% if site.enable_medium_zoom -%}
   <!-- Medium Zoom JS -->
   <script
     defer
@@ -15,14 +15,13 @@
     crossorigin="anonymous"
   ></script>
   <script defer src="{{ '/assets/js/zoom.js' | relative_url | bust_file_cache }}"></script>
-{% endif %}
-{% if page.toc and page.toc.sidebar %}
+{% endif -%}
+{% if page.toc and page.toc.sidebar -%}
   <!-- Sidebar Table of Contents -->
   <script defer src="{{ '/assets/js/bootstrap-toc.min.js' | relative_url | bust_file_cache }}"></script>
-{% endif %}
-
-<!-- Bootstrap Table -->
-{% if page.pretty_table %}
+{% endif -%}
+{% if page.pretty_table -%}
+  <!-- Bootstrap Table -->
   <!-- Bootstrap Table doesn't go well with diff2html -->
   <script
     defer
@@ -30,14 +29,9 @@
     integrity="{{ site.third_party_libraries.bootstrap-table.integrity.js }}"
     crossorigin="anonymous"
   ></script>
-{% endif %}
-
+{% endif -%}
 <!-- Load Common JS -->
 <script src="{{ '/assets/js/no_defer.js' | relative_url | bust_file_cache }}"></script>
 <script defer src="{{ '/assets/js/common.js' | relative_url | bust_file_cache }}"></script>
 <script defer src="{{ '/assets/js/copy_code.js' | relative_url | bust_file_cache }}" type="text/javascript"></script>
-
-<!-- Jupyter Open External Links New Tab -->
-<script defer src="{{ '/assets/js/jupyter_new_tab.js' | relative_url | bust_file_cache }}"></script>
-
-{% assign site.test-library.url = site.test-library.url | append: 'teste' %}
+{% comment %} {%- assign site.test-library.url = site.test-library.url | append: 'teste' -%} {% endcomment %}

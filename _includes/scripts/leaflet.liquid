@@ -1,4 +1,4 @@
-{% if page.map %}
+{% if page['map-'] -%}
   <script
     src="{{ site.third_party_libraries.leaflet.url.js }}"
     integrity="{{ site.third_party_libraries.leaflet.integrity.js }}"
@@ -28,4 +28,4 @@
       }
     });
   </script>
-{% endif %}
+{% endif -%}

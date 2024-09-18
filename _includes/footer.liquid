@@ -1,4 +1,4 @@
-{% if site.footer_fixed %}
+{% if site.footer_fixed -%}
   <footer class="fixed-bottom" role="contentinfo">
     <div class="container mt-0">
       &copy; Copyright {{ site.time | date: '%Y' }}
@@ -13,28 +13,29 @@
       {% endif %}
     </div>
   </footer>
-{% else %}
+{% else -%}
   <footer class="sticky-bottom mt-5" role="contentinfo">
-    {% if site.newsletter.enabled %}
-      {% include scripts/newsletter.liquid %}
-    {% endif %}
+    {%- if site.newsletter.enabled %}
+      {%- include scripts/newsletter.liquid %}
+    {%- endif %}
 
     <div class="container">
       &copy; Copyright {{ site.time | date: '%Y' }}
-      {% if site.first_name or site.middle_name or site.last_name %}
+      {% if site.first_name or site.middle_name or site.last_name -%}
         {{ site.first_name }}
         {{ site.middle_name }}
         {{ site.last_name }}
-      {% else %}
+      {%- else -%}
         {{ site.title }}
-      {% endif -%}
-      . {{ site.footer_text | markdownify }}
-      {% if site.impressum_path %}
+      {%- endif -%}
+      .
+      {{ site.footer_text | markdownify }}
+      {% if site.impressum_path -%}
         <a href="{{ site.url }}{{ site.baseurl }}{{ site.impressum_path }}">Impressum</a>.
-      {% endif %}
-      {% if site.last_updated %}
+      {%- endif -%}
+      {% if site.last_updated -%}
         Last updated: {{ 'now' | date: '%B %d, %Y' }}.
-      {% endif %}
+      {%- endif -%}
     </div>
   </footer>
-{% endif %}
+{% endif -%}

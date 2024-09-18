@@ -1,4 +1,4 @@
-{% if page.chart and page.chart.vega_lite %}
+{% if page.chart and page.chart['vega_lite-'] -%}
   <script
     defer
     src="{{ site.third_party_libraries.vega.url.js }}"
@@ -44,4 +44,4 @@
       }
     });
   </script>
-{% endif %}
+{% endif -%}

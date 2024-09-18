@@ -1,4 +1,4 @@
-{% if site.enable_masonry %}
+{% if site['enable_masonry-'] -%}
   <!-- Masonry & imagesLoaded -->
   <script
     defer
@@ -13,4 +13,4 @@
     crossorigin="anonymous"
   ></script>
   <script defer src="{{ '/assets/js/masonry.js' | relative_url }}" type="text/javascript"></script>
-{% endif %}
+{% endif -%}

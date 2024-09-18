@@ -1,4 +1,4 @@
-{% if page.code_diff %}
+{% if page['code_diff-'] -%}
   <!-- diff2html doesn't go well with Bootstrap Table -->
   <script
     src="{{ site.third_party_libraries.diff2html.url.js }}"
@@ -27,4 +27,4 @@
       }
     });
   </script>
-{% endif %}
+{% endif -%}

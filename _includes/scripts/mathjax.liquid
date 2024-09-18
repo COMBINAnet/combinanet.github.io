@@ -1,5 +1,5 @@
-{% if site.enable_math %}
-  {% unless page.pseudocode %}
+{% if site.enable_math -%}
+  {%- unless page.pseudocode %}
     <!-- MathJax -->
     <script type="text/javascript">
       window.MathJax = {
@@ -21,5 +21,5 @@
       src="{{ site.third_party_libraries.polyfill.url.js }}"
       crossorigin="anonymous"
     ></script>
-  {% endunless %}
-{% endif %}
+  {%- endunless %}
+{% endif -%}
