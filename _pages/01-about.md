@@ -67,7 +67,7 @@ We are compiling existing [resources](/resources) and working together to build 
 {: .h4}
 <!-- prettier-ignore-end -->
 
-We are building a network that aligns efforts across regional and national boundaries in order to:
+We are building a [network](/people) that aligns efforts across regional and national boundaries to:
 
 - Advance scientific understanding of marine invasion dynamics across scales
 - Inform management and policy decisions for effective biosecurity
