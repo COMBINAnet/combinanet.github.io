@@ -35,6 +35,10 @@ social: false # includes social icons at the bottom of the page
 {: .lead}
 
 ---
+<!-- prettier-ignore-start -->
+## COMBINA in action
+{: .sr-only}
+<!-- prettier-ignore-end -->
 
 Our network aims to:
 
@@ -73,6 +77,6 @@ COMBINA gives our network the platform we need to:
 
 ---
 
-### Our history
+## Our history
 
 The concept for COMBINA grew from an [initial workshop](/assets/pdf/Informe-Final_Galapagos-2019-Invasions-Workshop.pdf) held in the Galápagos Islands in June 2019 with participants across 10 countries in the Americas, including scientists, policy-makers, and resource managers. The workshop underscored strong demand and need for coordination, shared resources, information exchange, and training across countries. The COMBINA network was announced at the [2023 Our Ocean Conference](http://ouroceanpanama2023.gob.pa/) in Panamá and formally launched at a [second workshop](https://stri.si.edu/story/combina), held in Panamá in March 2024 with over 70 participants from 12 different countries.
