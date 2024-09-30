@@ -37,7 +37,6 @@ social: false # includes social icons at the bottom of the page
 ---
 
 ## COMBINA in action
-{: .sr-only}
 
 <!-- prettier-ignore-start -->
 ### Accelerating knowledge exchange and capacity building
