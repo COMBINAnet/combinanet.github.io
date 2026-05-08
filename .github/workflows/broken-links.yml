@@ -54,7 +54,7 @@ jobs:
             --exclude-path '_pages/_examples/about_einstein.md'
             --exclude-path '_pages/_examples/blog.md'
             --exclude-path 'collections/_drafts'
-            --exclude-path 'collections/_projects/3_project.md'
+            --exclude-path 'collections/_projects/_examples'
             --verbose --no-progress
             './**/*.md' './**/*.html'
           jobSummary: true
