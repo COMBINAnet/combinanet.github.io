@@ -56,8 +56,12 @@ def is_bot_protected(url: str) -> bool:
     )
 
 
-def extract_status_code(status):
+def extract_status_code(status) -> "int | None":
     """Return the HTTP status code from lychee's JSON status field.
+
+    Returns ``None`` when the status code cannot be extracted (e.g. for
+    transport-level errors that carry a string message rather than an HTTP
+    status code).
 
     Lychee serialises Status in several possible shapes depending on version:
       {"code": 404, "text": "Not Found"}   — flat object
@@ -83,11 +87,12 @@ def extract_status_code(status):
     return None
 
 
-def parse_link(link):
+def parse_link(link) -> "tuple[str, int | None]":
     """Return (url, status_code) from a single lychee link entry.
 
-    Lychee may emit each entry as a dict {"url": ..., "status": ...}
-    or as an array [url, status, source].
+    ``link`` may be a dict ``{"url": ..., "status": ...}`` or a list/tuple
+    ``[url, status, ...]`` depending on the lychee version.
+    Returns ``None`` for the status code if it cannot be extracted.
     """
     if isinstance(link, dict):
         return link.get("url", ""), extract_status_code(link.get("status"))
@@ -108,7 +113,7 @@ def load_results(path: str) -> dict:
         sys.exit(1)
 
 
-def classify(data: dict):
+def classify(data: dict) -> "tuple[list[tuple[str, int | None, str]], list[tuple[str, int | None, str]]]":
     """Return (hard_failures, warnings) as lists of (url, code, source)."""
     hard_failures = []
     warnings = []
