@@ -121,3 +121,32 @@ yq -p=csv data.csv > data.yml
 ```
 
 (`yq` can also help [reshape the YAML file](https://mikefarah.gitbook.io/yq/recipes) if the initial conversion isn't what you had in mind)
+
+## Automated link checking
+
+Every push and pull request runs `.github/workflows/broken-links.yml`, which uses [lychee](https://github.com/lycheeverse/lychee) to check all URLs found in Markdown and HTML source files.
+
+### What the checker does
+
+- **Hard failures** — any URL that returns a definitive error (404, 410, 5xx, TLS/DNS failure, etc.) fails the CI job.
+  You must fix or remove the broken link before the PR can be merged.
+- **Warnings** — a small set of URLs from domains known to block automated checkers (returning 403 or 429) are listed in the job summary for visibility but do **not** fail the job.
+  If such a URL looks wrong, verify it manually in a browser and update the source file if it is truly broken.
+
+### Ethical bot identification
+
+The checker uses the user-agent string `COMBINAnet-LinkChecker/1.0 (+https://github.com/COMBINAnet/combinanet.github.io)` so that site operators can identify our automated requests and allowlist them if they choose.
+We never impersonate a browser or use deceptive tactics to bypass bot protection.
+
+### Adding or removing a bot-protected domain exception
+
+Exceptions are maintained in `.github/scripts/classify_links.py` under `BOT_PROTECTED_DOMAINS`.
+Before adding a new domain:
+
+1. Confirm the site returns 403 or 429 specifically because it blocks automated checkers — not because the URL is genuinely broken.
+2. Add the domain with a comment explaining why the exception is needed.
+3. Note the addition in your PR description.
+4. Review exceptions at least once a year and remove any that are no longer needed.
+
+Exceptions are limited to HTTP 403 and 429 responses only.
+All other failures (404, 410, 5xx, TLS/DNS errors) remain hard failures for every domain, including those on the exception list.

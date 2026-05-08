@@ -12,3 +12,5 @@ assets/libs/
 node_modules/
 vendor
 .idea
+__pycache__/
+*.pyc

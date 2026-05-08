@@ -1,5 +1,37 @@
 name: Check for broken links
 
+# =============================================================================
+# LINK-CHECK POLICY
+#
+# User-agent
+#   We identify ourselves honestly as "COMBINAnet-LinkChecker" so that site
+#   operators can recognise our bot and allowlist it if they choose.  We never
+#   impersonate a browser or use deceptive tactics to bypass bot protection.
+#
+# Two-tier result classification
+#   Results are classified in .github/scripts/classify_links.py:
+#     Hard failures  → job fails  (404, 410, 5xx, TLS/DNS errors, …)
+#     Warnings       → job passes, but the URL is listed in the job summary
+#
+# Bot-protected domain exceptions (warnings only)
+#   Some legitimate sites return 403 Forbidden or 429 Too Many Requests for
+#   automated checkers even when the URL is valid.  For a narrow, curated set
+#   of domains these two status codes are downgraded to warnings.  All other
+#   failure codes remain hard failures even for listed domains, so real
+#   breakage (404, 410, 5xx, TLS/DNS errors) is still caught.
+#
+#   Current exceptions: see BOT_PROTECTED_DOMAINS in
+#   .github/scripts/classify_links.py
+#
+# Exception governance
+#   - Exceptions are domain-specific and limited to HTTP 403 and 429 only.
+#   - Each entry must include a comment explaining why it is listed.
+#   - Review at least once a year; remove entries that are no longer needed.
+#   - Note any addition or removal in the PR description.
+#
+# See also: the "Automated link checking" section of README.md
+# =============================================================================
+
 on:
   push:
     branches:
@@ -47,13 +79,23 @@ jobs:
       - name: Link Checker 🔗
         uses: lycheeverse/lychee-action@v2.0.2
         with:
+          # fail: false — the classify step below applies the two-tier policy
+          # and exits with code 1 when there are hard failures.
           fail: false
+          # jobSummary: false — the classify step generates a richer summary.
+          jobSummary: false
+          output: lychee-results.json
           args: >-
-            --user-agent 'curl/7.54'
+            --user-agent 'COMBINAnet-LinkChecker/1.0 (+https://github.com/COMBINAnet/combinanet.github.io)'
+            --format json
+            --max-retries 2
+            --timeout 20
             --exclude-path '_pages/404.md'
             --exclude-path '_pages/_examples'
             --exclude-path 'collections/_drafts'
             --exclude-path 'collections/_projects/_examples'
             --verbose --no-progress
             './**/*.md' './**/*.html'
-          jobSummary: true
+
+      - name: Classify link check results 📊
+        run: python3 .github/scripts/classify_links.py
