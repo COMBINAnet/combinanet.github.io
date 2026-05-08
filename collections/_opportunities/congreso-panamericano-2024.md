@@ -12,7 +12,7 @@ description: |-
 
 date: 2024-10-14
 img: assets/img/i-congreso-panamericano_4x3.jpg
-redirect: https://www.icmyl.unam.mx/es/CongresoEspeciesInvasoras
+redirect: https://web.archive.org/web/20240919084019/https://www.icmyl.unam.mx/es/CongresoEspeciesInvasoras
 sitemap: false
 importance: 1
 category: meetings
