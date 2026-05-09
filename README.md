@@ -40,7 +40,7 @@ Instead of directly editing in HTML, you'll usually be giving Jekyll information
 #### Markdown
 
 This README.md file is written in Markdown.
-Markdown allows for simple formatting like **bold** (double asterisks: `**bold**`), _italics_ (single asterisks: `*italics*`), and [hyperlinks](https://www.marinebiosecurity.net) (put the linked text in square brackets immediately followed by the address in parentheses, like: `[hyperlinks](https://www.marinebiosecurity.net)`).
+Markdown allows for simple formatting like **bold** (double asterisks: `**bold**`), _italics_ (single asterisks: `*italics*`), and [hyperlinks](https://www.marinebiosecurity.org) (put the linked text in square brackets immediately followed by the address in parentheses, like: `[hyperlinks](https://www.marinebiosecurity.org)`).
 See [this cheatsheet](https://www.markdownguide.org/cheat-sheet/) for more details.
 You can also check out the markdown in this README file by opening [combinanet.github.io/README.md](https://github.com/decisionlabucsf/decisionlabucsf.github.io/blob/master/README.md) and clicking "Code".
 
